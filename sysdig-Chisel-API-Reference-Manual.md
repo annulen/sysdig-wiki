@@ -1,6 +1,9 @@
 sysdig chisels are Lua scripts that can be invoked from the sysdig command line, hook into the sysdig engine, and can be used to extend sysdig with advanced funcionality.
 
-Chisels interface with sysdig by means of three separate interfaces
+Chisels talk with sysdig using of three separate interfaces: 
+* the sysdig library, with functions to interact with the main program
+* the evt library, used to extract information from a captured event
+* a set of callbacks that get called when something interesting happens, e.g. when an event is received 
 
 ## sysdig library
 This library exports functions that can be used to interface with sysdig from a chisel.
@@ -17,7 +20,7 @@ This library exports functions that can be used to interface with sysdig from a 
 
 **set_interval_s(interval)**
 
-### evt library
+## evt library
 **field(fld)**
 
 **get_num()**
