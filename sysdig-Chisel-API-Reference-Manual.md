@@ -13,7 +13,7 @@ The functions in this library are mostly related to setting up the chisel enviro
 **request_field(fld_name)**
 
 This function is used to configure the sysdig engine to extract a filter field when an event is captured. _fld_name_ is the name of the sysdig filter field to extract (see the sysdig tutorial or type _sysdig -l_ for a list of available fields).
-The function returns a handle that can be fed to evt.field() to get the field value from the on_event() callback. 
+The function returns a field handle that can be fed to evt.field() to get the field value from the on_event() callback. 
 
 **set_filter(filter)**
 
@@ -40,19 +40,31 @@ Set a periodic callback for this chisel. If you use this function, the chisel ne
 
 **set_interval_ns(interval)**
 
-Like, but allows more granular timeouts. 
+Like set_interval_s(), but allows more granular timeouts. 
 
 ## evt library
 The function in this library are related to the event that is currently processed and therefore can only be called from the on_event() callback.
  
 **field(fld)**
 
+Extract a field's value from an event. _fld_ is a field handle obtained from a previous call to request_field().
+The function returns the field value, which can be a number or a string depending on the field. Use _sysdig -lv_ to find out the type of each exported field. 
+
+_Notes_
+* If the requested field is not exported by an event (e.g. non I/O events don't export the fd.name field), the return value of field() will be nil.
+*  one important field you need to be aware of is evt.rawarg. This field can be used to extract arbitrary system call arguments, e.g. evt.rawarg.res, and its type depends on the field you're asking. Use _sysdig -L_ to find out the type of event arguments.
 
 **get_num()**
 
+Return the incremental event number.
+
 **get_ts()**
 
+Return the raw event timestamp, expresses as nanoseconds since epoch. 
+
 **get_type()**
+
+Returns the event type as a number, and can be used for efficient event filtering. For the list of event type numbers, please refer to the ppm_event_type enumeration in driver/ppm_event_events_public.h.
 
 ## callbacks
 **on_set_arg(name, val)**
