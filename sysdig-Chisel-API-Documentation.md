@@ -1,3 +1,7 @@
+sysdig chisels are Lua scripts that can be invoked from the sysdig command line, hook into the sysdig engine, and can be used to extend sysdig with advanced funcionality.
+
+Chisels interface with sysdig by means of three separate interfaces
+
 # sysdig library
 This library exports functions that can be used to interface with sysdig from a chisel.
 ## Functions
