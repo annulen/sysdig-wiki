@@ -5,10 +5,13 @@ Chisels talk with sysdig using of three separate interfaces:
 * the evt library, used to extract information from a captured event
 * a set of callbacks that get called when something interesting happens, e.g. when an event is received 
 
+This page documents each of these interfaces.
+
 ## sysdig library
-This library exports functions that can be used to interface with sysdig from a chisel.
+The functions in this library are mostly related to setting up the chisel environment and are usually called at initialization time, i.e. inside on_init().
 
 **request_field(fld_name)**
+> sdfsdgf
 
 **set_filter(filter)**
 
