@@ -2,9 +2,9 @@ sysdig chisels are Lua scripts that can be invoked from the sysdig command line,
 
 Chisels interface with sysdig by means of three separate interfaces
 
-# sysdig library
+## sysdig library
 This library exports functions that can be used to interface with sysdig from a chisel.
-## Functions
+
 **request_field(fld_name)**
 
 **set_filter(filter)**
@@ -17,7 +17,7 @@ This library exports functions that can be used to interface with sysdig from a 
 
 **set_interval_s(interval)**
 
-# evt library
+### evt library
 **field(fld)**
 
 **get_num()**
@@ -26,7 +26,7 @@ This library exports functions that can be used to interface with sysdig from a 
 
 **get_type()**
 
-# callbacks
+## callbacks
 **on_set_arg(name, val)**
 
 **on_init()**
