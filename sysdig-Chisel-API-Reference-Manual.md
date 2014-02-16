@@ -7,6 +7,66 @@ Chisels talk with sysdig using of three separate interfaces:
 
 This page documents each of these interfaces.
 
+## Mondatory Globals
+In order to be recognized as a chisel, a Lua script *must* export the following global variables:
+* _description_: a string containing the chisel verbose description
+* _short_description_: a string that explains what the chisel does in few words, and can be used in a list
+* _category_: the chisel category, e.g. _IO_, _net_, _security_, etc.
+* _args_: a table describing each of the chisel arguments, in the following format:
+
+```lua 
+args = 
+{
+	{
+		name = "name1", 
+		description = "description1", 
+		argtype = "ipv4"
+	},
+	{
+		name = "name2", 
+		description = "description2", 
+		argtype = "string"
+	},
+}
+```
+
+_notes_: 
+* For each entry in the _args_ table, sysdig will expect an argument to be specified on the command line after the chisel name, and fail if the argument is not there.
+* Each argument in _args_ generates a call to the on_set_arg() callback.
+* _args_ can be empty if the chisel doesn't require any argument. 
+
+## callbacks
+Callbacks are the way sysdig uses to notify a chisel that something has happened. Most callbacks don't need to be registered. Just include the function in the chisel and, if present, the engine will call it. The only exception is on_interval(), which needs to be registered with sysdig.set_interval_s() or sysdig.set_interval_ns().
+Callbacks are optional. If yopu don't need one of them, just don't include it.
+
+**on_set_arg(name, val)**
+
+This callback is called by the engine for every argument contained in the _args_ global table. _name_ is the name of the argument to set, while _val_ is the value that the user specified on the sysdig command line.
+
+Returning false means that the parameter is not valid and will cause sysdig to quit.
+
+**on_init()**
+
+Called by sysdig *after* the capture is configured, *after* _on_set_arg()_ has been called for every chisel argument, but *before* any packet has been captured. Usually, this is where the chisel initializtion happens.
+
+Returning false means that the chisel initialization failed and will cause sysdig to quit.
+
+**on_event()**
+
+Invoked every time one of the captured events passes the filter specified with _set_filter()_, or for each event if _set_filter()_ has not been called. This is the function that usually contains the core chisel logic, and where you want to make sure things are efficient. From this callback you have access to the _evt_ library to extract information from the currently processed event.
+
+If you specified a formatter, returning false in _on_event()_ will make the formatter ignore the event.
+
+**on_capture_end()**
+
+Called by the engine at the end of the capture, i.e.
+* When CTRL+C is pressed for live captures.
+* After the last event has been read from offline captures.
+
+**on_interval()**
+
+Periodic timeout callback. Can be used to do things like reporting information once a second. Use _sysdig.set_interval_s()_ or _sysdig.set_interval_ns()_ to configure it.
+
 ## sysdig library
 The functions in this library are mostly related to setting up the chisel environment and are usually called at initialization time, i.e. inside on_init().
 
@@ -65,43 +125,3 @@ Return the raw event timestamp, expresses as nanoseconds since epoch.
 **evt.get_type()**
 
 Returns the event type as a number, and can be used for efficient event filtering. For the list of event type numbers, please refer to the ppm_event_type enumeration in driver/ppm_event_events_public.h.
-
-## Mondatory Globals
-In order to be recognized as a chisel, a Lua script *must* export the following global variables:
-* _description_: a string containing the chisel verbose description
-* _short_description_: a string that explains what the chisel does in few words, and can be used in a list
-* _category_: the chisel category, e.g. _IO_, _net_, _security_, etc.
-* _args_: a table describing each of the chisel arguments, in the following format:
-
-```lua 
-args = 
-{
-	{
-		name = "name1", 
-		description = "description1", 
-		argtype = "ipv4"
-	},
-	{
-		name = "name2", 
-		description = "description2", 
-		argtype = "string"
-	},
-}
-```
-
-_note_: _args_ can be empty if the chisel doesn't require any argument. 
-
-## callbacks
-Callbacks are the way sysdig uses to notify a chisel that something has happened. Most callbacks don't need to be registered. Just include the function in the chisel and, if present, the engine will call it. The only exception is on_interval(), which needs to be registered with sysdig.set_interval_s() or sysdig.set_interval_ns().
-Callbacks are optional. If yopu don't need one of them, just don't include it.
-
-**on_set_arg(name, val)**
-
-
-**on_init()**
-
-**on_event()**
-
-**on_capture_end()**
-
-**on_interval()**
