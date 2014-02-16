@@ -18,6 +18,7 @@ The function returns a handle that can be fed to evt.field() to get the field va
 Configure the sysdig engine to apply the given filter before handing the events to this chisel's on_event() callback.
 
 > Note: the filter set with set_filter() is private for this chisels and won't influence other chisels that are run from the same command line.
+
 > Note: it's very important to be aggressive as possible with filters. The sysdig engine is heavily optimized, so e,liminating as many events as possible before reaching the chisel's on_event() will make the chisel much more efficient.
 
 **set_snaplen(snaplen)**
