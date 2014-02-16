@@ -17,13 +17,16 @@ The function returns a handle that can be fed to evt.field() to get the field va
 **set_filter(filter)**
 Configure the sysdig engine to apply the given filter before handing the events to this chisel's on_event() callback.
 
-> Note: the filter set with set_filter() is private for this chisels and won't influence other chisels that are run from the same command line.
-
-> Note: it's very important to be aggressive as possible with filters. The sysdig engine is heavily optimized, so e,liminating as many events as possible before reaching the chisel's on_event() will make the chisel much more efficient.
+_Notes_
+* The filter set with set_filter() is private for this chisels and won't influence other chisels that are run from the same command line.
+* You can set only one filter per chisel. Calling set_filter() twice will cause the first filter to be overridden.
+* It's very important to be aggressive as possible with filters. The sysdig engine is heavily optimized, so e,liminating as many events as possible before reaching the chisel's on_event() will make the chisel much more efficient.
 
 **set_snaplen(snaplen)**
+Configure the number of bytes that are captured from buffers of I/O system calls like read(), write(), sendto(), recvfrom(), etc.
 
 **set_event_formatter(format)**
+Configure an event formatter. _format_ is a string containing a list of fields to print, with the same syntax that you would use fwith the -p sysdig command line switch (refer to the sysdig manual for more information).
 
 **set_interval_ns(interval)**
 
