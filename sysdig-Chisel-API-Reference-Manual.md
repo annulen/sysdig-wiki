@@ -76,16 +76,19 @@ In order to be recognized as a chisel, a Lua script *must* export the following 
 ` 
 args = 
 {
+
 	{
 		name = "name1", 
 		description = "description1", 
 		argtype = "ipv4"
 	},
+
 	{
 		name = "name2", 
 		description = "description2", 
 		argtype = "string"
 	},
+
 }
 `
 
