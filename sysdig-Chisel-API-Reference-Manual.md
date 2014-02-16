@@ -25,14 +25,20 @@ _Notes_
 * It's very important to be aggressive as possible with filters. The sysdig engine is heavily optimized, so e,liminating as many events as possible before reaching the chisel's on_event() will make the chisel much more efficient.
 
 **set_snaplen(snaplen)**
+
 Configure the number of bytes that are captured from buffers of I/O system calls like read(), write(), sendto(), recvfrom(), etc.
 
 **set_event_formatter(format)**
+
 Configure an event formatter. _format_ is a string containing a list of fields to print, with the same syntax that you would use fwith the -p sysdig command line switch (refer to the sysdig manual for more information).
 
-**set_interval_ns(interval)**
+By default, chisels have no event formatter, and that gives them the freedom to print whatever they want using Lua's print() function. Setting a formatter, on the other hand, lets you delegate event formatting to sysdig, leveraging sysdig's filter fields system. Note that only events for which on_event() returns _true_ are going to be printed.
 
 **set_interval_s(interval)**
+Set a periodic callback for this chisel. If you use this function, the chisel needs to include a function called on_interval(), which the engine will call every _interval_ seconds. This can be used to perform periodic tasks, like printing information to the screen once a second.
+
+**set_interval_ns(interval)**
+Like, but allows more granular timeouts. 
 
 ## evt library
 **field(fld)**
@@ -51,3 +57,5 @@ Configure an event formatter. _format_ is a string containing a list of fields t
 **on_event()**
 
 **on_capture_end()**
+
+**on_interval()**
