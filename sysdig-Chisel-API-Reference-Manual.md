@@ -35,9 +35,11 @@ Configure an event formatter. _format_ is a string containing a list of fields t
 By default, chisels have no event formatter, and that gives them the freedom to print whatever they want using Lua's print() function. Setting a formatter, on the other hand, lets you delegate event formatting to sysdig, leveraging sysdig's filter fields system. Note that only events for which on_event() returns _true_ are going to be printed.
 
 **set_interval_s(interval)**
+
 Set a periodic callback for this chisel. If you use this function, the chisel needs to include a function called on_interval(), which the engine will call every _interval_ seconds. This can be used to perform periodic tasks, like printing information to the screen once a second.
 
 **set_interval_ns(interval)**
+
 Like, but allows more granular timeouts. 
 
 ## evt library
