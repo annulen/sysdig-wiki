@@ -66,8 +66,32 @@ Return the raw event timestamp, expresses as nanoseconds since epoch.
 
 Returns the event type as a number, and can be used for efficient event filtering. For the list of event type numbers, please refer to the ppm_event_type enumeration in driver/ppm_event_events_public.h.
 
+## Mondatory Globals
+In order to be recognized as a chisel, a Lua script *must* export the following global variables:
+* _description_: a string containing the chisel verbose description
+* _short_description_: a string that explains what the chisel does in few words, and can be used in a list
+* _category_: the chisel category, e.g. _IO_, _net_, _security_, etc.
+* _args_: a table describing each of the chisel arguments, in the following format:
+
+` 
+args = 
+{
+	{
+		name = "host_ip", 
+		description = "the remote host IP address", 
+		argtype = "ipv4"
+	},
+}
+`
+
+_note_: _args_ can be empty if the chisel doesn't require any argument. 
+
 ## callbacks
+Callbacks are the way sysdig uses to notify a chisel that something has happened. Most callbacks don't need to be registered. Just include the function in the chisel and, if present, the engine will call it. The only exception is on_interval(), which needs to be registered with sysdig.set_interval_s() or sysdig.set_interval_ns().
+Callbacks are optional. If yopu don't need one of them, just don't include it.
+
 **on_set_arg(name, val)**
+
 
 **on_init()**
 
