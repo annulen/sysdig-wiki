@@ -73,7 +73,7 @@ In order to be recognized as a chisel, a Lua script *must* export the following 
 * _category_: the chisel category, e.g. _IO_, _net_, _security_, etc.
 * _args_: a table describing each of the chisel arguments, in the following format:
 
-` 
+```lua 
 args = 
 {
 	{
@@ -81,15 +81,13 @@ args =
 		description = "description1", 
 		argtype = "ipv4"
 	},
-`
-`
 	{
 		name = "name2", 
 		description = "description2", 
 		argtype = "string"
 	},
 }
-`
+```
 
 _note_: _args_ can be empty if the chisel doesn't require any argument. 
 
