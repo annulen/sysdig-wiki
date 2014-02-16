@@ -77,9 +77,14 @@ In order to be recognized as a chisel, a Lua script *must* export the following 
 args = 
 {
 	{
-		name = "host_ip", 
-		description = "the remote host IP address", 
+		name = "name1", 
+		description = "description1", 
 		argtype = "ipv4"
+	},
+	{
+		name = "name2", 
+		description = "description2", 
+		argtype = "string"
 	},
 }
 `
