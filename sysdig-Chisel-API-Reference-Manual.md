@@ -43,7 +43,10 @@ Set a periodic callback for this chisel. If you use this function, the chisel ne
 Like, but allows more granular timeouts. 
 
 ## evt library
+The function in this library are related to the event that is currently processed and therefore can only be called from the on_event() callback.
+ 
 **field(fld)**
+
 
 **get_num()**
 
