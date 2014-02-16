@@ -76,7 +76,6 @@ In order to be recognized as a chisel, a Lua script *must* export the following 
 ` 
 args = 
 {
-
 	{
 		name = "name1", 
 		description = "description1", 
@@ -88,7 +87,6 @@ args =
 		description = "description2", 
 		argtype = "string"
 	},
-
 }
 `
 
