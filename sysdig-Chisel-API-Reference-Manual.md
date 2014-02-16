@@ -11,9 +11,14 @@ This page documents each of these interfaces.
 The functions in this library are mostly related to setting up the chisel environment and are usually called at initialization time, i.e. inside on_init().
 
 **request_field(fld_name)**
-> sdfsdgf
+This function is used to configure the sysdig engine to extract a filter field when an event is captured. _fld_name_ is the name of the sysdig filter field to extract (see the sysdig tutorial or type _sysdig -l_ for a list of available fields).
+The function returns a handle that can be fed to evt.field() to get the field value from the on_event() callback. 
 
 **set_filter(filter)**
+Configure the sysdig engine to apply the given filter before handing the events to this chisel's on_event() callback.
+
+> Note: the filter set with set_filter() is private for this chisels and won't influence other chisels that are run from the same command line.
+> Note: it's very important to be aggressive as possible with filters. The sysdig engine is heavily optimized, so e,liminating as many events as possible before reaching the chisel's on_event() will make the chisel much more efficient.
 
 **set_snaplen(snaplen)**
 
