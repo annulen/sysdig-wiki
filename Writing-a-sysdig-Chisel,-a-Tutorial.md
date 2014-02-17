@@ -42,8 +42,8 @@ The output is not very exciting and looks like this
 
 > event!
 
-event!
+> event!
 
 > event!
-> event!
+
 > event!
