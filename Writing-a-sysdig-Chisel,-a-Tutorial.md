@@ -8,7 +8,7 @@ and to the reference manual,
 
 http://www.lua.org/manual/5.2/
 
-## Chisel Backbone
+## The Chisel Backbone
 Let's start with the simplest possible running chisel.
 
 ```lua
@@ -38,7 +38,7 @@ So let's run the beast! First, save the code as countsc.lua in the directory whe
 
 > sysdig -c countsc
 
-The output is not very exciting and looks like this
+The output is not going to be very exciting and will look like this
 
 > event!
 
@@ -47,3 +47,9 @@ The output is not very exciting and looks like this
 > event!
 
 > event!
+
+## Handling Arguments
+
+## Chisel initialization and Filtering
+
+## Printing the results
