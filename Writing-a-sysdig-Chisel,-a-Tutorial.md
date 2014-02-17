@@ -38,11 +38,10 @@ So let's run the beast! First, save the code as countsc.lua in the directory whe
 
 > sysdig -c countsc
 
-The output is not very exciting and looks like
+The output is not very exciting and looks like this
 
 > event!
-event!
-event!
-event!
-event!
-event!
+> event!
+> event!
+> event!
+> event!
