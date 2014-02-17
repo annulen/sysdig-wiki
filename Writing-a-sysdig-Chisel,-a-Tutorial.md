@@ -8,7 +8,7 @@ and to the reference manual,
 
 http://www.lua.org/manual/5.2/
 
-## The Chisel Backbone
+## The Basics
 Let's start with the simplest possible running chisel.
 
 ```lua
@@ -49,7 +49,7 @@ The output is not going to be very exciting and will look like this
 > event!
 
 ## Handling Arguments
-
+Our chisel
 ## Chisel initialization and Filtering
 
 ## Printing the results
