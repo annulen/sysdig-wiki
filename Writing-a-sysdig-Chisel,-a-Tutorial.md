@@ -41,7 +41,9 @@ So let's run the beast! First, save the code as countsc.lua in the directory whe
 The output is not very exciting and looks like this
 
 > event!
+
 > event!
+
 > event!
 > event!
 > event!
