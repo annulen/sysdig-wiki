@@ -3,4 +3,4 @@ Here you can find technical and less technical information about the tool and th
 
 ## Sections
 Chisels
-* [Arbitrary Link Text](Wiki Page Name)
+* [sysdig Chisel API Reference Manual](sysdig Chisel API Reference Manual)
