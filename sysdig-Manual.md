@@ -1,7 +1,7 @@
 NAME
 ----
 
-sysdig - Interactively dump and analyze system calls
+sysdig - the definitive system and process troubleshooting tool
 
 SYNOPSIS
 --------
