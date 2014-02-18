@@ -262,6 +262,6 @@ end
 
 We use sysdig.set_filter() in on_init() to set a sysdig filter that keeps only open enter events. At that point on_event is just a trivial counter increment. Again, I recommend that you read the sysdig tutorial if you want to learn more about filtering.
 
-That's it! I hope you enjoyed this tutorial. For more information, consult the [chisel API manual](sysdig Chisel API Reference Manual) and use the [existing chisels](https://github.com/draios/sysdig/tree/master/userspace/sysdig/chisels) as a reference. If you build something cool, don't forget to submit it to the community, through our github repository or the mailing list.
+That's it! I hope you enjoyed this tutorial. For more information, consult the [chisel API manual](sysdig Chisel API Reference Manual) and use the [existing chisels](https://github.com/draios/sysdig/tree/master/userspace/sysdig/chisels) as a reference. If you build something cool, don't forget to submit it to the community, through our [github repository](https://github.com/draios/sysdig) or the mailing list.
 
 Happy chiseling! 
