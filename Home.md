@@ -1,10 +1,10 @@
 Welcome to the sysdig wiki!
 Here you can find technical and less technical information about the tool and its APIs.
 ### Sections
-**sysdig Installation**  
+**Installation**  
 [sysdig Installation Manual](sysdig Installation Manual)  
 
-**sysdig Manuals**  
+**sysdig**  
 [sysdig Manual](sysdig Manual)  
 [sysdig Tutorial](sysdig Tutorial)  
 
