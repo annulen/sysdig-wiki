@@ -18,17 +18,16 @@ The following distributions are supported:
 **Debian, Ubuntu**
 
 1. Trust the Draios GPG key, configure the apt repository, and update the package list
-``` 
+```bash
 curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
 curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list  
 apt-get update
 ```
-
 2. Install kernel development files
-
 Warning: The following command might not work with any kernel. Make sure to customize the name of the package properly
+``` 
 apt-get -y install linux-headers-$(uname -r)
-
+``` 
 3. Install, configure, and restart the Draios agent
 
 apt-get -y install draios-agent
