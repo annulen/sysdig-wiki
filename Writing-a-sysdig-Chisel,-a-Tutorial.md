@@ -1,13 +1,9 @@
 This page will guide you through creating a simple but fully featured sysdig chisels. We're going to create a chisel that takes a system call name as parameter and prints how many times that system call has been called.
 
-sysdig chisels are written in Lua, a powerful and fast embedded scripting language. If you are not familiar with it, I suggest you take a look to THE book,
-
-http://www.lua.org/pil/
-
-and to the reference manual,
-
+sysdig chisels are written in Lua, a powerful and fast embedded scripting language. If you are not familiar with it, I suggest you take a look to THE book,  
+http://www.lua.org/pil/  
+and to the reference manual,  
 http://www.lua.org/manual/5.2/
-
 ## The Basics
 Let's start with the simplest possible running chisel.
 
