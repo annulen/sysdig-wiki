@@ -77,7 +77,7 @@ We can run the new code with this command line
 
 And the output will be an equally unexciting
 
-> open
+> open  
 > open  
 > open  
 > open
