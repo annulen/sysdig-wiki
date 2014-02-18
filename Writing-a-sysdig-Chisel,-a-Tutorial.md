@@ -42,7 +42,7 @@ The output is going to be very unexciting and will look like this
 > event!  
 
 ## Handling Arguments
-Our chisel needs an argument: the name of the system call that the user wants to count. We need sysdig know about it, and then be ready to receive the argument value once sysdig has parsed it. In oder to do that, we fill the _arg_ table with our argument information, and we add the _on_set_arg()_ function. _on_set_arg()_ gets called with the name and value of each of the arguments that are listed in _args_.
+Our chisel needs an argument: the name of the system call that the user wants to count. We need sysdig know about it, and then be ready to receive the argument value once sysdig has parsed it. In oder to do that, we fill the _arg_ table with our argument information, and we add the on_set_arg() function. on_set_arg() gets called with the name and value of each of the arguments that are listed in _args_.
 
 ```lua
 -- Chisel description
@@ -127,12 +127,13 @@ function on_event()
 	return true
 end
 ```
-Usually, after receiving all the parameters, a chisel wants to initialize things before the capture starts. Doing that is just a matter of adding the _on_init()_ function, which is called by the engine before receiveng the first event.
+Usually, after receiving all the parameters, a chisel wants to initialize things before the capture starts. Doing that is just a matter of adding the on_init() function, which is called by the engine before receiveng the first event.
 
-In our case, since we want to count how many times a system call has been called, we need to know what system call type each of the captured events corresponds to. We also need the event direction, because sysdig generates two event (an enter one and an exit one) for every system call, and we don't want to double count. We instruct the engine to extract this data for us by requesting the _evt.type_ and _evt.dir_ fields to the engine from _on_init()_, with _sysdig.request_field()_.
+In our case, since we want to count how many times a system call has been called, we need to know what system call type each of the captured events corresponds to. We also need the event direction, because sysdig generates two event (an enter one and an exit one) for every system call, and we don't want to double count. We instruct the engine to extract this data for us by requesting the _evt.type_ and _evt.dir_ fields to the engine from on_init(), with sysdig.request_field().
 
-_sysdig.request_field()_ accepts any sysdig filter/display field. If you're curious about which fields you can use, take a look at the sysdig tutorial, or type
-> sysdig -l  
+sysdig.request_field() accepts any sysdig filter/display field. If you're curious about which fields you can use, take a look at the sysdig tutorial, or type
+> sysdig -l
+
 or
 > sysdig -L  
 
