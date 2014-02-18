@@ -13,7 +13,7 @@ The simplest way to use sysdig is by invoking it without any argument. Doing thi
 
 By default, sysdig prints the information for each event on a single line, with the following format:
 
-'''%evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args'''
+```%evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args```
 
 where:
 •	evt.time is the event timestamp
