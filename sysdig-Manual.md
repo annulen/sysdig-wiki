@@ -49,17 +49,17 @@ Multiple checks can be combined through brakets and the following boolean operat
 **Chisels**  
 Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions.
 To get the list of available chisels, type
->$ sysdig –cl  
+> $ sysdig –cl  
 
 For each chisel, you get the description and the list of arguments it expects. 
 To run one of the chisels, you use the –c flag, e.g.:
->$ sysdig –c topfiles
+> $ sysdig –c topfiles
 
 If a chisel needs arguments, you specify them after the chisel name:
->$ sysdig –c spy_ip 192.168.1.157
+> $ sysdig –c spy_ip 192.168.1.157
 
 Chiesls can be combined with filters:
->$ sysdig -c topfiles "not fd.name contains /dev"
+> $ sysdig -c topfiles "not fd.name contains /dev"
 
 OPTIONS
 -------
@@ -129,13 +129,19 @@ Print all the open system calls invoked by cat
 Print the name of the files opened by cat
 > $ ./sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
 
+List the available chisels
+> $ ./sysdig -cl
+
+Run the spy_ip chisel for the 192.168.1.157 IP address:
+> $ sysdig –c spy_ip 192.168.1.157
+
 FILES
 -----
 
-*/opt/sysdig/chisels*
+*/opt/sysdig/chisels*  
   The global chisels directory.
 
-*~/.chisels*
+*~/.chisels*  
   The personal chisels directory.
 
 BUGS
