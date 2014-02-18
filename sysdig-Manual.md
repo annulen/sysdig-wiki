@@ -64,52 +64,52 @@ Chiesls can be combined with filters:
 OPTIONS
 -------
 
-**-a**, **--abstime**
+**-a**, **--abstime**  
   Show absolute event timestamps
   
-**-c** _chiselname_ _chiselargs_, **--chisel**=_chiselname_ _chiselargs_
+**-c** _chiselname_ _chiselargs_, **--chisel**=_chiselname_ _chiselargs_  
   run the specified chisel. If the chisel require arguments, they must be specified in the command line after the name.
   
-**-cl**, **--list-chisels**
+**-cl**, **--list-chisels**  
   lists the available chisels. Looks for chisels in ., ./chisels, ~/chisels and /usr/share/sysdig/chisels.
   
-**-dv**, **--displayflt**   
+**-dv**, **--displayflt**  
   Make the given filter a dsiplay one Setting this option causes the events to be filtered after being parsed by the state system. Events are normally filtered before being analyzed, which is more efficient, but can cause state (e.g. FD names) to be lost
   
-**-h**, **--help**
+**-h**, **--help**  
   Print this page
   
 **-j**, **--json**         
   Emit output as json
   
-**-l**, **--list**
+**-l**, **--list**  
   List the fields that can be used for filtering and output formatting. Use -lv to get additional information for each field.
   
 **-L**, **--list-events**  
   List the events that the engine supports
   
-**-n** _num_, **--numevents**=_num_
+**-n** _num_, **--numevents**=_num_  
   Stop capturing after <num> events
   
-**-p** _output_format_, **--print**=_output_format_
+**-p** _output_format_, **--print**=_output_format_  
   Specify the format to be used when printing the events. See the examples section below for more info.
   
-**-q**, **--quiet**
+**-q**, **--quiet**  
   Don't print events on the screen. Useful when dumping to disk.
   
-**-r** _readfile_, **--read**=_readfile_
+**-r** _readfile_, **--read**=_readfile_  
   Read the events from <readfile>.
   
-**-S**, **--summary**
+**-S**, **--summary**  
   print the event summary (i.e. the list of the top events) when the capture ends.
   
-**-s** _len_, **--snaplen**=_len_
+**-s** _len_, **--snaplen**=_len_  
   Capture the first <len> bytes of each I/O buffer. By default, the first 80 bytes are captured. Use this option with caution, it can generate huge trace files.
   
-**-v**, **--verbose**
+**-v**, **--verbose**  
   Verbose output
   
-**-w** _writefile_, **--write**=_writefile_
+**-w** _writefile_, **--write**=_writefile_  
   Write the captured events to _writefile_.
 
 EXAMPLES
