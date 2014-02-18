@@ -40,6 +40,7 @@ The output is not going to be very exciting and will look like this
 > event!  
 > event!  
 > event!  
+
 ## Handling Arguments
 Our chisel
 ## Chisel initialization and Filtering
