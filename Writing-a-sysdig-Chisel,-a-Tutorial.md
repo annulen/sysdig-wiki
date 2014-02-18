@@ -206,4 +206,62 @@ Beautiful! We're done, right?
 Well, not yet. We can still improve our script, and use it as an opportunity to learn about filtering. 
 
 ## Filtering
-Let's complicate our code a bit.
+Our current code receives every single event in on_event(), just to count a little subset of them. That not ideal because:
+* it makes our code more complex than what it should be
+* it's not as efficient as it could. Just in time compiled Lua is very fast, but if possible we should delegate stuff to the sysdig engine, which is written in C++ and heavily optimized.
+Fortunately, chisels can leverage the sysdig filtering engine. Look at this code:
+
+```lua
+-- Chisel description
+description = "counts how many times the specified system call has been called";
+short_description = "syscall count";
+category = "misc";
+
+-- Chisel argument list
+args = 
+{
+	{
+		name = "syscall_name", 
+		description = "the name of the system call to count", 
+		argtype = "string"
+	},
+}
+
+-- Argument notification callback
+function on_set_arg(name, val)
+	syscallname = val
+	return true
+end
+
+-- Initialization callback
+function on_init()
+	-- Request the fileds that we need
+	ftype = sysdig.request_field("evt.type")
+	fdir = sysdig.request_field("evt.dir")
+	
+	-- set the filter
+	sysdig.set_filter("evt.type=" .. syscallname .. " and evt.dir = >")
+	
+	return true
+end
+
+count = 0
+
+-- Event parsing callback
+function on_event()
+	count = count + 1
+	return true
+end
+
+-- End of capture callback
+function on_capture_end()
+	print(syscallname .. " has been called " .. count .. " times")
+	return true
+end
+```
+
+We use sysdig.set_filter() in on_init() to set a sysdig filter that keeps only open enter events. At that point on_event is just a trivial counter increment. Again, I recommend that you read the sysdig tutorial if you want to learn more about filtering.
+
+That's it! I hope you enjoyed this tutorial. For more information, consult the ... and use the existing chisels as a reference. If you build something cool, don't forget to submit it to the community, through our github repository or the mailing list.
+
+Happy chiseling! 
