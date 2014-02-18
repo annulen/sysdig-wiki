@@ -16,14 +16,17 @@ By default, sysdig prints the information for each event on a single line, with 
 ```%evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args```
 
 where:
-•	evt.time is the event timestamp
-•	evt.cpu is the CPU number where the event was captured
-•	proc.name is the name of the process that generated the event
-•	thread.tid is the TID that generated the event, which corresponds to the PID for single thread processes
-•	evt.dir is the event direction, > for enter events and < for exit events
-•	evt.type is the name of the event, e.g. 'open' or 'read'
-•	evt.args is the list of event arguments. In case of system calls, these tend to correspond to the system call arguments, but that’s not always the case: some system call arguments are excluded for simplicity or performance reasons.
-NOTE: Not all of the system calls are currently decoded by sysdig. Non-decoded system calls are still shown in the output, but with no arguments.
+* evt.time is the event timestamp
+* evt.cpu is the CPU number where the event was captured
+* proc.name is the name of the process that generated the event
+* thread.tid is the TID that generated the event, which corresponds to the PID for single thread processes
+* evt.dir is the event direction, > for enter events and < for exit events
+* evt.type is the name of the event, e.g. 'open' or 'read'
+* evt.args is the list of event arguments. In case of system calls, these tend to correspond to the system call arguments, but that’s not always the case: some system call arguments are excluded for simplicity or performance reasons.
+
+**NOTE**: 
+Not all of the system calls are currently decoded by sysdig. Non-decoded system calls are still shown in the output, but with no arguments.
+
 By looking at the output, you can immediately spot some key differences between this output and the strace one:
 •	For most system calls, sysdig shows two separate lines: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in case of context switches, especially in multi-processor environments.
 •	File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: a tuple for network connections, a name for files, and so on. 
