@@ -36,14 +36,10 @@ So let's run the beast! First, save the code as countsc.lua in the directory whe
 
 The output is not going to be very exciting and will look like this
 
-> event!
-
-> event!
-
-> event!
-
-> event!
-
+> event!  
+> event!  
+> event!  
+> event!  
 ## Handling Arguments
 Our chisel
 ## Chisel initialization and Filtering
