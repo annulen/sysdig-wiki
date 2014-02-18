@@ -30,6 +30,11 @@ apt-get update
 apt-get -y install linux-headers-$(uname -r)
 ``` 
 
+3) Install sysdig
+``` 
+apt-get -y install sysdig
+``` 
+
 **CentOS, RHEL, Fedora, Amazon Linux**
 
 1) Trust the Draios GPG key, configure the yum repository
@@ -38,7 +43,7 @@ rpm --import http://download.draios.com/DRAIOS-GPG-KEY.public
 curl -s -o /etc/yum.repos.d/draios.repo http://download.draios.com/stable/rpm/draios.repo
 ```
 
-Install the EPEL repository
+2) Install the EPEL repository
 
 **Note**: The following command is required only if DKMS is not available in the distribution. You can verify if DKMS is available with yum list dkms
 
@@ -52,6 +57,11 @@ rpm -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm
 yum -y install kernel-devel-$(uname -r)
 ```
 
+4) Install sysdig
+``` 
+yum -y install sysdig
+``` 
+
 ###Update
 
 Updates are installed as part of the normal system updates available with _apt-get_ and _yum_. If you want to force an update here are the instructions for the various distributions.
@@ -59,12 +69,12 @@ Updates are installed as part of the normal system updates available with _apt-g
 **Debian, Ubuntu**
 ```
 apt-get update  
-apt-get -y install draios-agent
+apt-get -y install sysdig
 ```
 
 **CentOS, RHEL, Fedora, Amazon Linux**
 ```
-yum -y install draios-agent
+yum -y install sysdig
 ```
 
 ###Uninstallation
@@ -73,10 +83,10 @@ Here are the instructions for the various distributions.
 
 **Debian, Ubuntu**
 ```
-apt-get remove draios-agent sysdig
+apt-get remove sysdig
 ```
 
 **CentOS, RHEL, Fedora, Amazon Linux**
 ```
-yum erase draios-agent sysdig
+yum erase sysdig
 ```
