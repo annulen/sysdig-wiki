@@ -28,14 +28,14 @@ where:
 Not all of the system calls are currently decoded by sysdig. Non-decoded system calls are still shown in the output, but with no arguments.
 
 By looking at the output, you can immediately spot some key differences between this output and the strace one:
-•	For most system calls, sysdig shows two separate lines: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in case of context switches, especially in multi-processor environments.
-•	File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: a tuple for network connections, a name for files, and so on. 
+* For most system calls, sysdig shows two separate lines: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in case of context switches, especially in multi-processor environments.
+* File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: a tuple for network connections, a name for files, and so on. 
 The exact format used to render an FD is the following: 
 num(<type>resolved_string)
 where: 
-•	num is the FD number
-•	resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
-•	type is a single-letter-encoding of the fd type, and can be one of the following:
+* num is the FD number
+* resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
+* type is a single-letter-encoding of the fd type, and can be one of the following:
 o	f for files 
 o	4 for IPv4 sockets
 o	6 for IPv6 sockets
@@ -44,16 +44,25 @@ o	s for signal FDs
 o	e for event FDs
 o	i for inotify FDs
 o	t for timer FDs
-2.	Trace Files
+
+###Trace Files
 Sysdig lets you save the captured events to disk so that they can be analyzed at a later time. The syntax is the following:
-$ sysdig –w myfile.scap
+
+>$ sysdig –w myfile.scap
+
 If you want to limit the number of events saved to the file to 100, you can use the –n flag:
-$ sysdig –n 100 –w myfile.scap
+
+>$ sysdig –n 100 –w myfile.scap
+
 Reading a previously saved trace file can be done with the –r flag:
-$ sysdig –r myfile.scap
+
+>$ sysdig –r myfile.scap
+
 Note that sysdig saves a full snapshot of the OS in each capture file (running processes, open files, user names…), and this means that no information is lost when doing offline analysis.
 Note also that you can download a MAC and Windows version of sysdig. They won’t be able to do live capture, but they can be used to analyze trace files that have been captured under linux.
-3.	Filtering
+
+###Filtering
+
 Now that we took care of the basics, let’s start having some fun. Sysdig’s filtering system is powerful and versatile, and is designed to look for needles in a haystack. Filters are specified at the end of the command line, like in tcpdump, and can be applied to both a live capture or a trace file. For example, let’s look at the activity of a specific command, in this case cat:
 $ ./sysdig proc.name=cat
 19:28:06.634075871 2 cat (45854) < execve res=0 exe=cat args= tid=45854(cat) pid=45854(cat) ptid=38714(bash) cwd=/root/agent/build/debug/test fdlimit=1024 
@@ -314,7 +323,9 @@ And, for your reference, here’s the list, where ‘>’ indicates and enter ev
 > switch(PID next)
 
 Please just remember that the list changes with every new release, so make sure to use the program for the most updated one.
-4.	Output Formatting 
+
+###Output Formatting 
+
 Did you take some time to experiment with filtering and filter fields? Good, because now we’re going to learn how to use the same fields to customize what sysdig prints to the screen. Another really nice benefit of the type of system sysdig uses to encode fields, events and parameters is that they can all be used to customize the program output. Output customization happens with the –p command line flag, and works somewhat similarly to the C printf syntax. Here’s an example:
 $ sysdig -p"user:%user.name dir:%evt.arg.path" evt.type=chdir
 ubuntu) /root
@@ -323,9 +334,9 @@ ubuntu) /root/Download
 
 This one-liner filters on the chdir system calls (the one that gets called every time a user does a cd), and prints the user name and the directory where the user is going. Essentially, it lets you follow a user as she moves in the file system.
 Some notes about the –p formatting syntax:
-•	Fields must be prepended with a %
-•	You can add arbitrary text in the string, exactly as you would do in the C printf.
-•	By default, a line is printed only if all the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it prints no matter what. In that case, the missing fields will be rendered as <NA>.
+* Fields must be prepended with a %
+* You can add arbitrary text in the string, exactly as you would do in the C printf.
+* By default, a line is printed only if all the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it prints no matter what. In that case, the missing fields will be rendered as <NA>.
 For example,
 $ sysdig -p"%evt.type %evt.dir %evt.arg.name" evt.type=open
 will only print exit open events, like this 
@@ -358,12 +369,14 @@ $ sysdig -p"%fd.name" “proc.name=apache and evt.type=accept"
 lists TCP/IP endpoint information for all the connections received by apache.
 Well, you get the idea. ?
 Are you interested in learning more useful sysdig one-liners? Visit the sysdig website on a regular basis or, even better, follow us on twitter. We’ll post new one-liners on a regular basis.
-5.	Chiseling
+
+###Chiseling
+
 Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions. 
 If you’ve used system tracing tools like dtrace, you’re probably familiar with running scripts that trace OS events. Usually, with dtrace-like tools you write your scripts using a domain-specific language that gets compiled into bytecode and injected in the kernel. Draios uses a different approach: events are efficiently brought to user-level, enriched with context, and then scripts can be applied to them. This brings several benefits:
-•	A well known scripting language can be used instead of a custom one. In fact, sysdig’s chisels are LUA scripts. LUA is well known, powerful, and extremely efficient.
-•	Chisels can leverage the broad collection of LUA libraries.
-•	Chisels work well on live systems, but can also be used with trace files for offline analysis.  
+* A well known scripting language can be used instead of a custom one. In fact, sysdig’s chisels are LUA scripts. LUA is well known, powerful, and extremely efficient.
+* Chisels can leverage the broad collection of LUA libraries.
+* Chisels work well on live systems, but can also be used with trace files for offline analysis.  
 To get the list of available chisels, just type
 $ sysdig –cl
 stdout          	Prints the standard output of any process on screen. Combine this script with a filter to 
