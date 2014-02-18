@@ -499,4 +499,5 @@ One last thing to remember about chisels is that you can run as many as you want
 >$ sysdig -c stdin -c stdout proc.name=cat
 
 will replay both standard input and standard output of cat.
-As mentioned before, chisels are written in LUA, so customizing them or writing new ones is very easy and pretty fun. Refer to the sysdig chisel reference manual (link), or to the chisel tutorial (link) if you want to learn how to do it.  
+As mentioned before, chisels are written in LUA, so customizing them or writing new ones is very easy and pretty fun. The [chisel tutorial](Writing a sysdig Chisel, a Tutorial) and 
+[chisel API reference](sysdig Chisel API Reference Manual) include all you need to get started.  
