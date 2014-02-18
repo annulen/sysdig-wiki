@@ -12,43 +12,31 @@ The following distributions are supported:
 * Amazon Linux, any version available from the AWS Marketplace
 
 ###Installation
+
 ##NOTE##: Run the commands as root or with sudo
 
-Automatic
+##Debian, Ubuntu##
 
-This is the recommended procedure for installing the Draios agent.
-
-curl -s http://download.draios.com/stable/install-agent | sudo bash -s 8c3a3eef-5f95-4937-bc72-f2bb9a48556a
-
-Manual
-
-Manual installation is recommended in the following cases:
-
-Full control over the deployment process
-Integration with configuration management tools
-Custom kernel
-Unsupported distribution
-Debian, Ubuntu
-
-Trust the Draios GPG key, configure the apt repository, and update the package list
-curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -
-
+1. Trust the Draios GPG key, configure the apt repository, and update the package list
+> curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
 curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list
 
 apt-get update
 
-Install kernel development files
+2. Install kernel development files
+
 Warning: The following command might not work with any kernel. Make sure to customize the name of the package properly
 apt-get -y install linux-headers-$(uname -r)
 
-Install, configure, and restart the Draios agent
+3. Install, configure, and restart the Draios agent
+
 apt-get -y install draios-agent
 
 echo customerid = 8c3a3eef-5f95-4937-bc72-f2bb9a48556a >> /opt/draios/bin/dragent.properties
 
 service dragent restart
 
-CentOS, RHEL, Fedora, Amazon Linux
+##CentOS, RHEL, Fedora, Amazon Linux
 
 Trust the Draios GPG key, configure the yum repository
 rpm --import http://download.draios.com/DRAIOS-GPG-KEY.public
@@ -70,7 +58,8 @@ echo customerid = 8c3a3eef-5f95-4937-bc72-f2bb9a48556a >> /opt/draios/bin/dragen
 
 service dragent start
 
-Update
+###Update
+
 Updates are installed as part of the normal system updates available with apt-get and yum. If you want to force an update here are the instructions for the various distributions.
 
 Debian, Ubuntu
@@ -83,7 +72,8 @@ CentOS, RHEL, Fedora, Amazon Linux
 
 yum -y install draios-agent
 
-Uninstallation
+###Uninstallation
+
 Here are the instructions for the various distributions.
 
 Debian, Ubuntu
