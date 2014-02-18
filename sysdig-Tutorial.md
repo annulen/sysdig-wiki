@@ -421,22 +421,6 @@ If you’ve used system tracing tools like dtrace, you’re probably familiar wi
 To get the list of available chisels, just type
 
 >$ sysdig –cl  
-stdout          	Prints the standard output of any process on screen. Combine this script with a filter to limit the output to a specific process or pid.  
-                	No args.  
-stdin           	Prints the standard input of any process on screen. Combine this script with a filter to limit the output to a specific process or pid.  
-                	No args.  
-stderr          	Prints the standard error of any process on screen. Combine this script with a filter to limit the output to a specific process or pid.  
-					No args.  
-topfiles        	Shows the top files in terms of disk usage, once per second.  
-                	No args.  
-topprocs_file		Shows the top processes in terms of total (in+out) bytes to disk, once per second.  
-                	No args.  
-follow_user     	Lists every command that users launches interactively (e.g. from bash) and every directory users visit.  
-                	No args.  
-spy_ip          	shows the network payloads exchanged with an IP endpoint  
-                	Args: host_ip.  
-topports_server 	Shows the top TCP/UDP server ports in terms of total (in+out) bandwidth, once per second.  
-                	No args.  
 
 For each chisel, you get the description and the list of arguments it expects. 
 To run one of the chisels, you use the –c flag. For instance, let’s run the topfiles chisel:
