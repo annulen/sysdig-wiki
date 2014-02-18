@@ -1,14 +1,15 @@
 ### The Basics
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it in standard output, very much like strace does.
-$ sysdig
-09:34:35.807452316 0 httpd (59416) > writev fd=13 size=270 
-09:34:35.807452847 2 ab (59421) > write fd=17(<4>127.0.0.1:40370->127.0.0.1:80) size=77 
-09:34:35.807477353 0 httpd (59416) < writev res=270 data=HTTP/1.1 302 Found..Date: Fri, 10 Jan 2014 17:34:35 GMT..Server: Apache/2.4.4 (U 
-09:34:35.807487713 2 ab (59421) < write res=77 data=GET / HTTP/1.0..Host: 127.0.0.1..User-Agent: ApacheBench/2.3..Accept: */*.... 
-09:34:35.807489930 2 ab (59421) > connect fd=6(<4>127.0.0.1:40371->127.0.0.1:80) 
-09:34:35.807492363 2 ab (59421) < connect res=0 tuple=4127.0.0.1:40371->127.0.0.1:80 
-09:34:35.807493225 0 httpd (59416) > write fd=9(<f>/opt/lampp/logs/access_log (deleted)) size=66 
-09:34:35.807494292 2 ab (59421) > epoll_ctl
+
+> $ sysdig  
+09:34:35.807452316 0 httpd (59416) > writev fd=13 size=270  
+09:34:35.807452847 2 ab (59421) > write fd=17(<4>127.0.0.1:40370->127.0.0.1:80) size=77  
+09:34:35.807477353 0 httpd (59416) < writev res=270 data=HTTP/1.1 302 Found..Date: Fri, 10 Jan 2014 17:34:35 GMT..Server: Apache/2.4.4 (U  
+09:34:35.807487713 2 ab (59421) < write res=77 data=GET / HTTP/1.0..Host: 127.0.0.1..User-Agent: ApacheBench/2.3..Accept: */*....  
+09:34:35.807489930 2 ab (59421) > connect fd=6(<4>127.0.0.1:40371->127.0.0.1:80)  
+09:34:35.807492363 2 ab (59421) < connect res=0 tuple=4127.0.0.1:40371->127.0.0.1:80  
+09:34:35.807493225 0 httpd (59416) > write fd=9(<f>/opt/lampp/logs/access_log (deleted)) size=66  
+09:34:35.807494292 2 ab (59421) > epoll_ctl  
 
 By default, sysdig prints the information for each event on a single line, with the following format:
 
