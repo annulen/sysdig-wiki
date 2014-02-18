@@ -1,6 +1,4 @@
-###Requirements
-
-##Distributions##
+###Distributions
 
 The following distributions are supported:
 
@@ -13,9 +11,9 @@ The following distributions are supported:
 
 ###Installation
 
-##NOTE##: Run the commands as root or with sudo
+**NOTE**: Run the commands as root or with sudo
 
-##Debian, Ubuntu##
+**Debian, Ubuntu**
 
 1. Trust the Draios GPG key, configure the apt repository, and update the package list
 > curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
