@@ -45,7 +45,7 @@ curl -s -o /etc/yum.repos.d/draios.repo http://download.draios.com/stable/rpm/dr
 
 2) Install the EPEL repository
 
-**Note**: The following command is required only if DKMS is not available in the distribution. You can verify if DKMS is available with yum list dkms
+**Note**: The following command is required only if DKMS is not available in the distribution. You can verify if DKMS is available with `yum list dkms`
 
 ```
 rpm -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm
