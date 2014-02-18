@@ -13,12 +13,13 @@ The following distributions are supported:
 
 ###Installation
 
-##NOTE##: Run the commands as root or with sudo
+**NOTE**: Run the commands as root or with sudo
 
-##Debian, Ubuntu##
+**Debian, Ubuntu**
 
 1. Trust the Draios GPG key, configure the apt repository, and update the package list
-``` curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
+``` 
+curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
 curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list  
 apt-get update
 ```
@@ -36,7 +37,7 @@ echo customerid = 8c3a3eef-5f95-4937-bc72-f2bb9a48556a >> /opt/draios/bin/dragen
 
 service dragent restart
 
-##CentOS, RHEL, Fedora, Amazon Linux
+**CentOS, RHEL, Fedora, Amazon Linux**
 
 Trust the Draios GPG key, configure the yum repository
 rpm --import http://download.draios.com/DRAIOS-GPG-KEY.public
