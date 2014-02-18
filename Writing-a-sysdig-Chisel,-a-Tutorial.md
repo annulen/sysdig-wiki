@@ -119,7 +119,7 @@ count = 0
 
 -- Event parsing callback
 function on_event()
-	if evt.field(ftype) == "open" and evt.field(fdir) == ">" then
+	if evt.field(ftype) == syscallname and evt.field(fdir) == ">" then
 		count = count + 1
 		print(count)
 	end
@@ -137,8 +137,73 @@ sysdig.request_field() accepts any sysdig filter/display field. If you're curiou
 or
 > sysdig -L  
 
-At that point, we can extract the valu
+Now take a look at on_event(). Once the values have been requested with request_field(), we can extract their value for each incoming event.
 
+The output of our script now makes much more sense, but it's still very verbose. It would be nice to print just a summary at the end of the capture.
 
-## Printing the Summary at the End of the Capture
- 
+## Getting Notified When the Capture Ends
+Adding on_capture_end() to our script allows us to get notified when the capture ends, i.e.:
+* when the last packet is reached in an offline capture
+* when CTRL+C is called on a live capture
+
+This is exactly what we need to make our script less verbose, so let's add it to the code:
+
+```lua
+-- Chisel description
+description = "counts how many times the specified system call has been called";
+short_description = "syscall count";
+category = "misc";
+
+-- Chisel argument list
+args = 
+{
+	{
+		name = "syscall_name", 
+		description = "the name of the system call to count", 
+		argtype = "string"
+	},
+}
+
+-- Argument notification callback
+function on_set_arg(name, val)
+	syscallname = val
+	return true
+end
+
+-- Initialization callback
+function on_init()
+	-- Request the fileds that we need
+	ftype = sysdig.request_field("evt.type")
+	fdir = sysdig.request_field("evt.dir")
+	
+	return true
+end
+
+count = 0
+
+-- Event parsing callback
+function on_event()
+	if evt.field(ftype) == syscallname and evt.field(fdir) == ">" then
+		count = count + 1
+	end
+	
+	return true
+end
+
+-- End of capture callback
+function on_capture_end()
+	print(syscallname .. " has been called " .. count .. " times")
+	return true
+end
+```
+
+Let's take a look at the result
+
+> sysdig -c countsc open
+> open has been called 7484 times
+
+Beautiful! We're done, right?
+Well, not yet. We can still improve our script, and use it as an opportunity to learn about filtering. 
+
+## Filtering
+Let's complicate our code a bit.
