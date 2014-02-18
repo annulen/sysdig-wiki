@@ -34,7 +34,7 @@ where:
 
 The output format can be customized with the -p switch, using any of the fields listed by 'sysdig -l'.
 
-**Filtering**
+**Filtering**  
 
 sysdig filters are specified at the end of the command line. The simplest filter is a simple field-value check:
 > $ sysdig proc.name=cat
@@ -46,7 +46,7 @@ Checks can use one of these comparison operators: _=_, _!=_, _<_, _<=_, _>_, _>=
 Multiple checks can be combined through brakets and the following boolean operators: _and_, _or_, _not_. e.g.
 > $ sysdig "not(fd.name contains /proc or fd.name contains /dev)"
 
-**Chisels**
+**Chisels**  
 Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions.
 To get the list of available chisels, type
 >$ sysdig –cl  
