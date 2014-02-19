@@ -2,14 +2,12 @@ Welcome to the sysdig wiki!
 Here you can find technical and less technical information about the tool and its APIs.
 ### Sections
 **Installation**  
-[sysdig Installation Manual](sysdig Installation Manual)  
+[sysdig Installation Instructions](sysdig Installation Manual)  
 
 **sysdig**  
-[sysdig Manual](sysdig Manual)  
 [sysdig Tutorial](sysdig Tutorial)  
+[sysdig Reference Manual](sysdig Manual)  
 
 **Chisels**  
 [Writing a sysdig Chisel, a Tutorial](Writing a sysdig Chisel, a Tutorial)  
 [sysdig Chisel API Reference Manual](sysdig Chisel API Reference Manual)
-
-[test md](test md)
