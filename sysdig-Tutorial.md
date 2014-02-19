@@ -31,19 +31,19 @@ By looking at the output, you can immediately spot some key differences between 
 * For most system calls, sysdig shows two separate lines: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in case of context switches, especially in multi-processor environments.
 * File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: a tuple for network connections, a name for files, and so on. 
 The exact format used to render an FD is the following: 
-num(<type>resolved_string)
+num(\<type\>resolved_string)
 where: 
-* num is the FD number
-* resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
-* type is a single-letter-encoding of the fd type, and can be one of the following:
- * f for files 
- * 4 for IPv4 sockets
- * 6 for IPv6 sockets
- * u for unix sockets
- * s for signal FDs
- * e for event FDs
- * i for inotify FDs
- * t for timer FDs
+ * num is the FD number
+ * resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
+ * type is a single-letter-encoding of the fd type, and can be one of the following:
+  * f for files 
+  * 4 for IPv4 sockets
+  * 6 for IPv6 sockets
+  * u for unix sockets
+  * s for signal FDs
+  * e for event FDs
+  * i for inotify FDs
+  * t for timer FDs
 
 ###Trace Files
 Sysdig lets you save the captured events to disk so that they can be analyzed at a later time. The syntax is the following:
