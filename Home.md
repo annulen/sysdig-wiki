@@ -4,10 +4,10 @@ Here you can find technical and less technical information about the tool and it
 **Installation**  
 [sysdig Installation Instructions](sysdig Installation Manual)  
 
-**sysdig**  
+**sysdig Usage**
 [sysdig Tutorial](sysdig Tutorial)  
 [sysdig Reference Manual](sysdig Manual)  
 
-**Chisels**  
+**Chisels and Scripting**  
 [Writing a sysdig Chisel, a Tutorial](Writing a sysdig Chisel, a Tutorial)  
 [sysdig Chisel API Reference Manual](sysdig Chisel API Reference Manual)
