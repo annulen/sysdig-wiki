@@ -36,7 +36,7 @@ where:
  * num is the FD number
  * resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
  * type is a single-letter-encoding of the fd type, and can be one of the following:
-  * f for files 
+   * f for files 
   * 4 for IPv4 sockets
   * 6 for IPv6 sockets
   * u for unix sockets
