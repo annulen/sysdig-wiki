@@ -25,7 +25,7 @@ apt-get update
 ```
 2) Install kernel development files
 
-**Warning**: The following command might not work with any kernel. Make sure to customize the name of the package properly
+Warning: The following command might not work with any kernel. Make sure to customize the name of the package properly
 ``` 
 apt-get -y install linux-headers-$(uname -r)
 ``` 
