@@ -37,13 +37,13 @@ where:
  * resolved_string is the resolved representation of the FD, e.g. 127.0.0.1:40370->127.0.0.1:80 for a TCP socket
  * type is a single-letter-encoding of the fd type, and can be one of the following:
    * f for files 
-  * 4 for IPv4 sockets
-  * 6 for IPv6 sockets
-  * u for unix sockets
-  * s for signal FDs
-  * e for event FDs
-  * i for inotify FDs
-  * t for timer FDs
+   * 4 for IPv4 sockets
+   * 6 for IPv6 sockets
+   * u for unix sockets
+   * s for signal FDs
+   * e for event FDs
+   * i for inotify FDs
+   * t for timer FDs
 
 ###Trace Files
 Sysdig lets you save the captured events to disk so that they can be analyzed at a later time. The syntax is the following:
