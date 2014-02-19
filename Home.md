@@ -4,7 +4,7 @@ Here you can find information about the tool and its APIs.
 **Installation**  
 [sysdig Installation Instructions](sysdig Installation Manual)  
 
-**sysdig Usage**
+**sysdig Usage**  
 [sysdig Tutorial](sysdig Tutorial)  
 [sysdig Reference Manual](sysdig Manual)  
 
