@@ -1,3 +1,5 @@
+**NOTE**: sysdig can be compiled under Linux, OSX and Windows, but only the Linux version is capable of capturing events and doing live analysis. On the other platforms, you will be limited to reading the trace files generated under Linux.
+
 #### Linux and OSX:
 
 **Requirements**
