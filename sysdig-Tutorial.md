@@ -359,7 +359,7 @@ This one-liner filters on the chdir system calls (the ones that get called every
 Some notes about the –p formatting syntax:
 * Fields must be prepended with a %
 * You can add arbitrary text in the string, exactly as you would do in the C printf.
-* By default, a line is printed only if **all** the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it prints no matter what. In that case, the missing fields will be rendered as <NA>.
+* By default, a line is printed only if **all** the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it prints no matter what. In that case, the missing fields will be rendered as \<NA\>.
 
 For example,
 
