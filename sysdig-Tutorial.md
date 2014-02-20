@@ -59,7 +59,7 @@ Reading a previously saved trace file can be done with the –r flag:
 >$ sysdig –r myfile.scap
 
 Note that sysdig saves a full snapshot of the OS in each capture file (running processes, open files, user names…), and this means that no information is lost when doing offline analysis.
-Note also that you can download a MAC and Windows version of sysdig. They won’t be able to do live capture, but they can be used to analyze trace files that have been captured under linux.
+Note also that you can download a MAC and Windows version of sysdig. They won’t be able to do live capture, but they can be used to analyze trace files that have been captured under Linux.
 
 ###Filtering
 
