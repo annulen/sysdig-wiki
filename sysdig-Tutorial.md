@@ -375,15 +375,15 @@ because the enter events don’t contain the name argument, while
 
 >$ sysdig -p"*%evt.type %evt.dir %evt.arg.name" evt.type=open
 
-will print both enter and exit open events, with a line finishing with <NA> for enter events:
+will print both enter and exit open events, with a line finishing with \<NA\> for enter events:
 
->open > <NA>  
+>open > \<NA\>  
 open < /proc/1285/task/1399/stat  
-open > <NA>  
+open > \<NA\>  
 open < /proc/1285/task/1400/io  
-open > <NA>  
+open > \<NA\>  
 open < /proc/1285/task/1400/statm  
-open > <NA>  
+open > \<NA\>  
 
 Putting together filtering and output formatting makes sysdig a very flexible and powerful tool. Here are some examples:
 
