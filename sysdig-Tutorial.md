@@ -1,5 +1,5 @@
 ### The Basics
-The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it in standard output, very much like strace does.
+The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
 
 > $ sysdig  
 09:34:35.807452316 0 httpd (59416) > writev fd=13 size=270  
