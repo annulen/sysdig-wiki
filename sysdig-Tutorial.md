@@ -354,7 +354,7 @@ ubuntu) /root
 ubuntu) /root/tmp  
 ubuntu) /root/Download  
 
-This one-liner filters on the chdir system calls (the one that gets called every time a user does a cd), and prints the user name and the directory where the user is going. Essentially, it lets you follow a user as she moves in the file system.
+This one-liner filters on the chdir system calls (the ones that get called every time a user does a cd), and prints the user name and the directory where the user is going. Essentially, it lets you follow a user as she moves in the file system.
 
 Some notes about the –p formatting syntax:
 * Fields must be prepended with a %
