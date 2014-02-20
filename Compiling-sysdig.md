@@ -1,5 +1,3 @@
-### Installation instructions:
-
 #### Linux and OSX:
 
 **Requirements**
