@@ -91,7 +91,7 @@ captures the activity of both cat and vi, while
 
 >$ sysdig proc.name!=cat and evt.type=open
 
-shows all the files that are opened by programs that are not cat. Filter fields are expressed as class.field. A quick way to get a list of the available classes and the fields they include is
+shows all the files that are opened by programs that are not cat. Filter fields are expressed as _class.field_. A quick way to get a list of the available classes and the fields they include is
 
 >$ sysdig -l
 
