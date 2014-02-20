@@ -172,9 +172,9 @@ As you can see, enough to do plenty of creative digging. For example, thanks to 
 
 >$ sysdig evt.type=accept and proc.name!=apache
 
-to see the incoming network connections received by processes other than apache. 
-But that’s not all. 
-There are a couple of special fields, evt.arg and evt.rawarg, that deserve additional explanation. Every event that sysdig captures has a type (e.g. ‘open’, ‘read’…), and a set of parameters that encoded using a standardize type system. I know this sounds boring, so let’s just talk about the benefits of it: any parameter of any event can be used in filters. For example:
+to see the incoming network connections received by processes other than apache.  
+But that’s not all.  
+There are a couple of special fields, evt.arg and evt.rawarg, that deserve additional explanation. Every event that sysdig captures has a type (e.g. 'open', 'read'...), and a set of parameters (e.g. 'fd', 'name'...) that are encoded using a standardize type system. I know this sounds boring, so let’s just talk about the benefits of it: any parameter of any event can be used in filters. For example:
 
 >$ sysdig evt.type=execve and evt.arg.ptid=bash
 
