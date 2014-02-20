@@ -38,7 +38,7 @@ where:
  * type is a single-letter-encoding of the fd type, and can be one of the following:
    * f for files  
     * 4 for IPv4 sockets
-   * 6 for IPv6 sockets
+    * 6 for IPv6 sockets
    * u for unix sockets
    * s for signal FDs
    * e for event FDs
