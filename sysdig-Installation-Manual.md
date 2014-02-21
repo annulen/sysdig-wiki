@@ -33,7 +33,7 @@ apt-get update
 ```
 2) Install kernel development files
 
-Warning: The following command might not work with any kernel. Make sure to customize the name of the package properly
+**Warning**: The following command might not work with any kernel. Make sure to customize the name of the package properly
 ``` 
 apt-get -y install linux-headers-$(uname -r)
 ``` 
@@ -60,6 +60,7 @@ rpm -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm
 ```
 
 3) Install kernel development files
+
 **Warning**: The following command might not work with any kernel. Make sure to customize the name of the package properly
 ```
 yum -y install kernel-devel-$(uname -r)
@@ -70,7 +71,7 @@ yum -y install kernel-devel-$(uname -r)
 yum -y install sysdig
 ``` 
 
-###Update
+##Update
 
 Updates are installed as part of the normal system updates available with _apt-get_ and _yum_. If you want to force an update here are the instructions for the various distributions.
 
@@ -85,7 +86,7 @@ apt-get -y install sysdig
 yum -y install sysdig
 ```
 
-###Uninstallation
+##Uninstallation
 
 Here are the instructions for the various distributions.
 
