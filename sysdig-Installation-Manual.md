@@ -1,6 +1,6 @@
-###Requirements
+## Requirements
 
-##Distributions##
+### Distributions
 
 The following distributions are supported:
 
@@ -11,10 +11,18 @@ The following distributions are supported:
 * Fedora, from 13
 * Amazon Linux, any version available from the AWS Marketplace
 
-###Installation
+## Installation
 
 **NOTE**: Run the commands as root or with sudo
 
+### Automatic
+
+```
+curl -s http://download.draios.com/stable/install-sysdig | sudo bash
+```
+
+### Manual
+ 
 **Debian, Ubuntu**
 
 1) Trust the Draios GPG key, configure the apt repository, and update the package list
