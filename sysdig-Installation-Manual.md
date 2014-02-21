@@ -31,7 +31,7 @@ curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -
 curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list  
 apt-get update
 ```
-2) Install kernel development files
+2) Install kernel headers
 
 **Warning**: The following command might not work with any kernel. Make sure to customize the name of the package properly
 ``` 
@@ -59,7 +59,7 @@ Note: The following command is required only if DKMS is not available in the dis
 rpm -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm
 ```
 
-3) Install kernel development files
+3) Install kernel headers
 
 **Warning**: The following command might not work with any kernel. Make sure to customize the name of the package properly
 ```
