@@ -17,6 +17,7 @@ www.draios.com
 
 ####Sysdig Documentation
 * [Quick Reference Guide](sysdig Quick Reference Guide)  
+* [(sysdig manual)](sysdig manual)  
 * [Full Tutorial](sysdig Tutorial)  
 * [Cool sysdig Examples](sysdig Examples)
 
