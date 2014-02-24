@@ -2,7 +2,8 @@ Welcome to the sysdig wiki!
 Here you can find information about the tool and its APIs.
 ### Sections
 **Installation**  
-[Install sysdig (standard method)](How to Install sysdig)  
+[Install sysdig (standard Linux version)](How to Install sysdig for Linux)  
+[Install sysdig (limited Windows/OSX version)](How to Install sysdig for Windows/OSX)
 [Install sysdig from Source Code](How to Install sysdig from the Source Code)  
 [Update/Uninstall sysdig](sysdig Update and Uninstall)  
 
