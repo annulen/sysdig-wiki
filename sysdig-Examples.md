@@ -1,8 +1,10 @@
-EXAMPLES
+Here are some examples of commonly used sysdig commands.
+
+###Examples
 
 Capture all the events from the live system and print them to screen
+> sysdig
 
-$ sysdig
 Capture all the events from the live system and save them to disk
 
 $ sysdig -qw dumpfile.scap
