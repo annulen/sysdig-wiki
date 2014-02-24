@@ -11,10 +11,8 @@ Here you can find information about the tool and its APIs. If this is your first
 [Install sysdig from Source Code](How to Install sysdig from the Source Code)  
 [Update/Uninstall sysdig](sysdig Update and Uninstall)  
 
-###User Guide
+###User Guide / Technical Documentation
 [sysdig Tutorial](sysdig Tutorial)  
 [sysdig Reference Manual](sysdig Manual)  
-
-**Chisels and Scripting**  
 [Writing a sysdig Chisel, a Tutorial](Writing a sysdig Chisel, a Tutorial)  
 [sysdig Chisel API Reference Manual](sysdig Chisel API Reference Manual)
