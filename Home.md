@@ -11,7 +11,7 @@ Welcome to the sysdig wiki! Here you can find information about the tool and its
 
 ###User Guide / Technical Documentation
 * [Quick Reference Guide](sysdig Quick Reference Guide)  
-* [Some Commonly Used sysdig Examples](sysdig Examples)  
 * [Full Tutorial](sysdig Tutorial)  
   * [How to write a Chisel](Writing a sysdig Chisel, a Tutorial)  
   * [Chisel API Reference Manual](sysdig Chisel API Reference Manual)
+* [Cool sysdig Examples](sysdig Examples)
