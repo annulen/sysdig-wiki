@@ -1,22 +1,10 @@
-NAME
-----
-
-sysdig - the definitive system and process troubleshooting tool
-
-SYNOPSIS
---------
+##Command Format
 
 **sysdig** [*option*]... [*filter*]
 
-DESCRIPTION
------------
+[See here for some example commands.](sysdig Examples)
 
-sysdig is a tool for system troubleshooting, analysis and exploration. It can be used to capture, filter and decode system calls and other OS events. 
-sysdig can be both used to inspect live systems, or to generate trace files that can be analyzed at a later stage.
-
-Sysdig includes a powerul filtering language, has customizable output, and can be extended through Lua scripts, called chisels.
-
-**Output format**
+##Output Format
 
 By default, sysdig prints the information for each captured event on a single line, with the following format:
 
@@ -34,7 +22,7 @@ where:
 
 The output format can be customized with the -p switch, using any of the fields listed by 'sysdig -l'.
 
-**Filtering**  
+##Filtering 
 
 sysdig filters are specified at the end of the command line. The simplest filter is a simple field-value check:
 > $ sysdig proc.name=cat
@@ -46,7 +34,7 @@ Checks can use one of these comparison operators: _=_, _!=_, _<_, _<=_, _>_, _>=
 Multiple checks can be combined through brakets and the following boolean operators: _and_, _or_, _not_. e.g.
 > $ sysdig "not(fd.name contains /proc or fd.name contains /dev)"
 
-**Chisels**  
+##Chisels
 Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions.
 To get the list of available chisels, type
 > $ sysdig –cl  
@@ -61,8 +49,7 @@ If a chisel needs arguments, you specify them after the chisel name:
 Chiesls can be combined with filters:
 > $ sysdig -c topfiles "not fd.name contains /dev"
 
-OPTIONS
--------
+##OPTIONS
 
 **-a**, **--abstime**  
   Show absolute event timestamps
@@ -116,8 +103,7 @@ OPTIONS
   Write the captured events to _writefile_.
 
 
-FILES
------
+##FILES
 
 */opt/sysdig/chisels*  
   The global chisels directory.
@@ -125,17 +111,14 @@ FILES
 *~/.chisels*  
   The personal chisels directory.
 
-BUGS
-----
+##BUGS
 
 Bugs?
 
-AUTHOR
-------
+##AUTHOR
 
 Draios inc. <info@draios.com>
 
-SEE ALSO
---------
+##SEE ALSO
 
 **strace**(8), **tcpdump**(8), **lsof**(8)
