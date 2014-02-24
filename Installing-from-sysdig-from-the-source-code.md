@@ -7,6 +7,11 @@
 * Linux kernel headers
 * CMake > 2.8
 
+**Installation Instructions**  
+1. Download the sysdig github repository to your local machine  
+2. Navigate to the sysdig repository on your local machine  
+3. Run the following commands:  
+
 ```
 mkdir build
 cd build
