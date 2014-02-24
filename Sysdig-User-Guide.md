@@ -1,8 +1,9 @@
 ###Table of Contents  
-[The Basics](#wiki-the-basics)  
-[Trace Files](#wiki-trace-files)  
-[Filtering](#wiki-filtering)  
-[Output Formatting](#wiki-output-formatting)   
+* [The Basics](#wiki-the-basics)  
+* [Trace Files](#wiki-trace-files)  
+* [Filtering](#wiki-filtering)  
+* [Output Formatting](#wiki-output-formatting)  
+* [Chisels](#wiki-chisels)
 
 ### The Basics
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
@@ -414,3 +415,11 @@ prints user, process, and file name for all the accesses to the /etc directory.
 lists TCP/IP endpoint information for all the connections received by apache.
 Well, you get the idea. :-)
 Are you interested in learning more useful sysdig one-liners? Visit the sysdig website on a regular basis or, even better, follow us on twitter. We’ll post new one-liners on a regular basis.
+
+###Chisels
+
+Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions. Essentially, they enable you to do really cool stuff with your sysdig data. Just dig the data up, and then use a chisel to shape it into something beautiful. Get it? Awesome!
+
+Chisels are written in LUA, a well known, powerful, and extremely efficient scripting language.
+
+[Go here](Chisels User Guide) for a full tutorial.
