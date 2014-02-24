@@ -5,10 +5,6 @@
 * [Output Format](#wiki-output-format)  
 * [Filtering](#wiki-filtering)  
 * [Chisels](#wiki-chisels)  
-* [Files](#wiki-files)  
-* [Bugs](#wiki-bugs)  
-* [Author](#wiki-author)  
-* [See Also](#wiki-see-also)  
 
 ###Command Format
 
@@ -134,24 +130,3 @@ If a chisel needs arguments, you specify them after the chisel name:
 
 Chiesls can be combined with filters:
 > $ sysdig -c topfiles "not fd.name contains /dev"
-
-###FILES
-
-*/opt/sysdig/chisels*  
-  The global chisels directory.
-
-*~/.chisels*  
-  The personal chisels directory.
-
-###Bugs
-
-Bugs?
-
-###Author
-
-Draios inc. <info@draios.com>  
-www.draios.com
-
-###See Also
-
-**strace**(8), **tcpdump**(8), **lsof**(8)
