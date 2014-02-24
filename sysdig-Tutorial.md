@@ -1,3 +1,5 @@
+[#wiki-the-basics]
+
 ### The Basics
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
 
