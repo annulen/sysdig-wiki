@@ -23,5 +23,5 @@ www.draios.com
 
 ####Chisel Documentation
 * [User Guide](Chisel User Guide)
-* [How to write a Chisel](Writing a Sysdig Chisel, a Tutorial)  
+* [How to Write a Chisel](Writing a Sysdig Chisel, a Tutorial)  
 * [Chisel API Reference Manual](Sysdig Chisel API Reference Manual)
