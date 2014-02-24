@@ -7,7 +7,7 @@ www.draios.com
 
 ####Overview
 * [About Sysdig](Sysdig Overview) - Why we built it, and what it can do.
-* [About Chisels](Chisel Overview) - Scripting on top of sysdig.
+* [About Chisels](Chisels Overview) - Scripting on top of sysdig.
 
 ####Setup 
 * [Install Sysdig (standard Linux version)](How to Install Sysdig for Linux)  
