@@ -1,14 +1,14 @@
 **Table of Contents**  
-[Command Format](#wiki-command-format)  
-[Command Options](#wiki-command-options)  
-[Basic Command List](#wiki-basic-command-list)  
-[Output Format](#wiki-Output-Format)  
-[Filtering](#wiki-Filtering)  
-[Chisels](#wiki-chisels)  
-[Files](#wiki-files)  
-[Bugs](#wiki-bugs)  
-[Author](#wiki-author)  
-[See Also](#wiki-see-also)  
+* [Command Format](#wiki-command-format)  
+* [Command Options](#wiki-command-options)  
+* [Basic Command List](#wiki-basic-command-list)  
+* [Output Format](#wiki-output-format)  
+* [Filtering](#wiki-filtering)  
+* [Chisels](#wiki-chisels)  
+* [Files](#wiki-files)  
+* [Bugs](#wiki-bugs)  
+* [Author](#wiki-author)  
+* [See Also](#wiki-see-also)  
 
 ###Command Format
 
