@@ -2,8 +2,9 @@ Welcome to the sysdig wiki!
 Here you can find information about the tool and its APIs.
 ### Sections
 **Installation**  
-[sysdig Installation Instructions](sysdig Installation Manual)  
-[compiling the sources](Compiling sysdig)
+[Install sysdig](sysdig Installation Manual)  
+[Compile the sources](Compiling sysdig)
+[Update/Uninstall sysdig](sysdig Update and Uninstall)
 
 **sysdig Usage**  
 [sysdig Tutorial](sysdig Tutorial)  
