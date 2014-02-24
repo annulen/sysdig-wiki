@@ -1,22 +1,10 @@
-**Here are some examples of commonly used sysdig command formats.**
+Here is an ever growing list of cool things you can do with sysdig commands:
 
-Capture all the events from the live system and print them to screen
-> sysdig
+Print the top files that apache has been reading or writing to
+> sysdig -c topfiles "proc.name=httpd"
 
-Capture all the events from the live system and save them to disk
-> sysdig -qw dumpfile.scap
+Show the directories that the user "root" visits
+> sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
 
-Read events from a file and print them to screen
-> sysdig -r dumpfile.scap
-
-Print all the open system calls invoked by cat
-> sysdig proc.name=cat and evt.type=open
-
-Print the name of the files opened by cat
-> ./sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
-
-List the available chisels
-> ./sysdig -cl
-
-Run the spy_ip chisel for the 192.168.1.157 IP address:
-> sysdig –c spy_ip 192.168.1.157
+List all the incoming connections that are not served by apache.
+> sysdig -p"%proc.name) %fd.name" "evt.type=accept and proc.name!=httpd"
