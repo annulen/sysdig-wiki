@@ -1,6 +1,4 @@
-Welcome to the sysdig wiki!
-
-Here you can find information about the tool and its APIs. If this is your first time hearing about sysdig, we recommend you start with the website: <tbd>.
+Welcome to the sysdig wiki! Here you can find information about the tool and its APIs. If this is your first time hearing about sysdig, we recommend you start with the website: <tbd>.
 
 ###Overview
 [About sysdig](sysdig Overview) - Why we built it, and what it can do.
