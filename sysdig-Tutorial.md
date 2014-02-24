@@ -1,4 +1,8 @@
 [The Basics](#wiki-the-basics)
+[Trace Files](#wiki-trace-files)
+[Filtering](#wiki-filtering)
+[Output Formatting](#wiki-output-formatting)
+[Chiseling](#wiki-chiseling)
 
 ### The Basics
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
