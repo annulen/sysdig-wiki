@@ -1,7 +1,7 @@
 Welcome to the sysdig wiki! Here you can find information about the tool and its APIs. If this is your first time hearing about sysdig, we recommend you start with the website: tbd.
 
-Sysdig is developed by Draios, Inc. If you like what you see here, we'd love to hear from you!
-www.draios.com
+Sysdig is developed by Draios, Inc. If you like what you see here, we'd love to hear from you!  
+www.draios.com  
 <info@draios.com>
 
 ###Overview
