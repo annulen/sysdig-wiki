@@ -149,8 +149,8 @@ Bugs?
 
 ###Author
 
-Draios inc. <info@draios.com>
-[www.draios.com]
+Draios inc. <info@draios.com>  
+www.draios.com
 
 ###See Also
 
