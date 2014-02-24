@@ -11,10 +11,10 @@ The following distributions are supported:
 * Fedora, from 13
 * Amazon Linux, any version available from the AWS Marketplace
 
-**NOTE**: Run the commands as root or with sudo
+**NOTE**: Run all commands as root or with sudo  
 
 ## Automatic Installation  
-To install sysdig automatically, simply run the following command. This is the recommended installation method. For step-by-step manual installation, see the guide below.
+To install sysdig automatically, simply run the following command. This is the recommended installation method. For step-by-step manual installation, see the guide below. To install sysdig from the source code, see the instructions [here](Install sysdig from the Source Code).
 
 ```
 curl -s http://download.draios.com/stable/install-sysdig | sudo bash
