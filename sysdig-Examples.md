@@ -1,4 +1,4 @@
-*Here are some examples of commonly used sysdig command formats.*
+**Here are some examples of commonly used sysdig command formats.**
 
 Capture all the events from the live system and print them to screen
 > sysdig
