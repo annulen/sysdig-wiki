@@ -10,7 +10,7 @@ Welcome to the sysdig wiki! Here you can find information about the tool and its
 [Update/Uninstall sysdig](sysdig Update and Uninstall)  
 
 ###User Guide / Technical Documentation
-[Quick Reference Guide](sysdig Manual)  
+[Quick Reference Guide](sysdig Quick Reference Guide)  
 [Some Commonly Used sysdig Examples](sysdig Examples)  
 [Detailed sysdig Tutorial](sysdig Tutorial)  
     
