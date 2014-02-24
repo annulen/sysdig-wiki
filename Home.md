@@ -21,7 +21,7 @@ www.draios.com
 * [Cool Examples](Sysdig Examples)
 * [Sysdig Man Page](sysdig manual)  
 
-####Chisel Documentation
-* [User Guide](Chisel User Guide)
+####Chisels Documentation
+* [User Guide](Chisels User Guide)
 * [How to Write a Chisel](Writing a Sysdig Chisel, a Tutorial)  
 * [Chisel API Reference Manual](Sysdig Chisel API Reference Manual)
