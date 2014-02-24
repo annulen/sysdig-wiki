@@ -10,7 +10,9 @@ Welcome to the sysdig wiki! Here you can find information about the tool and its
 [Update/Uninstall sysdig](sysdig Update and Uninstall)  
 
 ###User Guide / Technical Documentation
-[sysdig Tutorial](sysdig Tutorial)  
-[sysdig Reference Manual](sysdig Manual)  
-[Writing a sysdig Chisel, a Tutorial](Writing a sysdig Chisel, a Tutorial)  
+[Quick Reference Guide](sysdig Manual)  
+[Some Commonly Used sysdig Examples](sysdig Examples)  
+[Detailed sysdig Tutorial](sysdig Tutorial)  
+    
+[How to write a sysdig Chisel](Writing a sysdig Chisel, a Tutorial)  
 [sysdig Chisel API Reference Manual](sysdig Chisel API Reference Manual)
