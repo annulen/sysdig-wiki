@@ -1,10 +1,13 @@
-##Command Format
+##Table of Contents
+[Command Format](#wiki-command-format)
+[Output Format](#wiki-Output-Format)
+
+###Command Format
 
 **sysdig** [*option*]... [*filter*]
 
-[See here for some example commands.](sysdig Examples)
 
-##Output Format
+###Output Format
 
 By default, sysdig prints the information for each captured event on a single line, with the following format:
 
@@ -49,7 +52,7 @@ If a chisel needs arguments, you specify them after the chisel name:
 Chiesls can be combined with filters:
 > $ sysdig -c topfiles "not fd.name contains /dev"
 
-##Representative Sample Commands
+##Command Reference Guide
 
 Capture all the events from the live system and print them to screen
 > sysdig
@@ -72,7 +75,7 @@ List the available chisels
 Run the spy_ip chisel for the 192.168.1.157 IP address:
 > sysdig –c spy_ip 192.168.1.157
 
-##OPTIONS
+##Command Options
 
 **-a**, **--abstime**  
   Show absolute event timestamps
@@ -134,14 +137,15 @@ Run the spy_ip chisel for the 192.168.1.157 IP address:
 *~/.chisels*  
   The personal chisels directory.
 
-##BUGS
+##Bugs
 
 Bugs?
 
-##AUTHOR
+##Author
 
 Draios inc. <info@draios.com>
+[www.draios.com]
 
-##SEE ALSO
+##See Also
 
 **strace**(8), **tcpdump**(8), **lsof**(8)
