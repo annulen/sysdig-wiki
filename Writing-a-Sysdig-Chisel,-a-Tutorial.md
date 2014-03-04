@@ -109,8 +109,8 @@ end
 -- Initialization callback
 function on_init()
 	-- Request the fileds that we need
-	ftype = sysdig.request_field("evt.type")
-	fdir = sysdig.request_field("evt.dir")	
+	ftype = chisel.request_field("evt.type")
+	fdir = chisel.request_field("evt.dir")	
 	return true
 end
 
@@ -128,9 +128,9 @@ end
 ```
 Usually, after receiving all the parameters, a chisel wants to initialize things before the capture starts. Doing that is just a matter of adding the on_init() function, which is called by the engine before receiving the first event.
 
-In our case, since we want to count how many times a system call has been called, we need to know what system call type each of the captured events corresponds to. We also need the event direction, because sysdig generates two events (an enter one and an exit one) for every system call, and we don't want to double count. We instruct the engine to extract this data for us by requesting the _evt.type_ and _evt.dir_ fields to the engine from on_init(), with sysdig.request_field().
+In our case, since we want to count how many times a system call has been called, we need to know what system call type each of the captured events corresponds to. We also need the event direction, because sysdig generates two events (an enter one and an exit one) for every system call, and we don't want to double count. We instruct the engine to extract this data for us by requesting the _evt.type_ and _evt.dir_ fields to the engine from on_init(), with chisel.request_field().
 
-sysdig.request_field() accepts any sysdig filter/display field. If you're curious about which fields you can use, take a look at the sysdig tutorial, or type
+chisel.request_field() accepts any sysdig filter/display field. If you're curious about which fields you can use, take a look at the sysdig tutorial, or type
 > sysdig -l
 
 or
@@ -172,8 +172,8 @@ end
 -- Initialization callback
 function on_init()
 	-- Request the fileds that we need
-	ftype = sysdig.request_field("evt.type")
-	fdir = sysdig.request_field("evt.dir")
+	ftype = chisel.request_field("evt.type")
+	fdir = chisel.request_field("evt.dir")
 	
 	return true
 end
@@ -235,11 +235,11 @@ end
 -- Initialization callback
 function on_init()
 	-- Request the fileds that we need
-	ftype = sysdig.request_field("evt.type")
-	fdir = sysdig.request_field("evt.dir")
+	ftype = chisel.request_field("evt.type")
+	fdir = chisel.request_field("evt.dir")
 	
 	-- set the filter
-	sysdig.set_filter("evt.type=" .. syscallname .. " and evt.dir = >")
+	chisel.set_filter("evt.type=" .. syscallname .. " and evt.dir = >")
 	
 	return true
 end
@@ -259,7 +259,7 @@ function on_capture_end()
 end
 ```
 
-We use sysdig.set_filter() in on_init() to set a sysdig filter that keeps only open enter events. At that point on_event is just a trivial counter increment. Again, I recommend that you read the sysdig tutorial if you want to learn more about filtering.
+We use chisel.set_filter() in on_init() to set a sysdig filter that keeps only open enter events. At that point on_event is just a trivial counter increment. Again, I recommend that you read the sysdig tutorial if you want to learn more about filtering.
 
 That's it! I hope you enjoyed this tutorial. For more information, consult the [chisel API manual](sysdig Chisel API Reference Manual) and use the [existing chisels](https://github.com/draios/sysdig/tree/master/userspace/sysdig/chisels) as a reference. If you build something cool, don't forget to submit it to the community, through our [github repository](https://github.com/draios/sysdig) or the mailing list.
 
