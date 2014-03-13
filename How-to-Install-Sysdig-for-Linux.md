@@ -1,3 +1,5 @@
+**NOTE**: Run all commands as root or with sudo  
+
 ## Requirements
 
 ### Distributions
@@ -17,8 +19,6 @@ To install sysdig automatically in one step, simply run the following command. T
 ```
 curl -s http://download.draios.com/stable/install-sysdig | sudo bash
 ```
-
-**NOTE**: Run all commands as root or with sudo  
 
 ## Manual Installation
  
