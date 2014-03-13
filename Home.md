@@ -15,10 +15,9 @@ www.draios.com / <info@draios.com>
 * [Update/Uninstall Sysdig](Sysdig Update and Uninstall)  
 
 ####Sysdig Documentation
-* [Quick Reference](Sysdig Quick Reference Guide)
 * [User Guide](Sysdig User Guide)  
 * [Cool Examples](Sysdig Examples)
-* [Sysdig Manual](Sysdig manual)  
+* [Manual Page](Sysdig manual)  
 
 ####Chisels Documentation
 * [User Guide](Chisels User Guide)
