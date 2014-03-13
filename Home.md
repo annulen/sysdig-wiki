@@ -11,7 +11,7 @@ www.draios.com / <info@draios.com>
 ####Setup 
 * [Install Sysdig (standard Linux version)](How to Install Sysdig for Linux)  
 * [Install Sysdig (limited Windows/OSX version)](How to Install Sysdig for Windows and OSX)  
-* [Install Sysdig from Source Code](How to Install Sysdig from the Source Code)  
+* [Compile the Source Code](How to Install Sysdig from the Source Code)  
 * [Update/Uninstall Sysdig](Sysdig Update and Uninstall)  
 
 ####Sysdig Documentation
