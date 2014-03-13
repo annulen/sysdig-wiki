@@ -16,8 +16,8 @@ www.draios.com / <info@draios.com>
 
 ####Sysdig Documentation
 * [User Guide](Sysdig User Guide)  
-* [Cool Examples](Sysdig Examples)
 * [Manual Page](Sysdig manual)  
+* [Cool Examples](Sysdig Examples)
 
 ####Chisels Documentation
 * [User Guide](Chisels User Guide)
