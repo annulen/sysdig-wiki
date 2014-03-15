@@ -14,5 +14,8 @@ Note: For a reference list of basic sysdig commands, see the [quick reference gu
 * Show the network data exchanged with the host 192.168.0.1
 > sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1
 
+* Observe ssh activity
+> sysdig -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
+
 * See how many open network connections each process has
 > sysdig -cfd_countby proc.name "fd.type=ipv4"
