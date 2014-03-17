@@ -21,13 +21,13 @@ as ASCII:
 > sysdig -e -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
 
 * See the top processes in terms of actively used network connections
-> sysdig -cfd_countby proc.name "fd.type=ipv4"
+> sysdig -cfdcount_by proc.name "fd.type=ipv4"
 
 * See the top processes in terms of actively used files
-> sysdig -cfd_countby proc.name "fd.type=file"
+> sysdig -cfdcount_by proc.name "fd.type=file"
 
 * See the top local server ports in terms of established connections  
-> sysdig -cfd_countby fd.sport "evt.type=accept"
+> sysdig -cfdcount_by fd.sport "evt.type=accept"
 
 * See the top client ports in terms of established connections  
-> sysdig -cfd_countby fd.sport "evt.type=accept"
+> sysdig -cfdcount_by fd.sport "evt.type=accept"
