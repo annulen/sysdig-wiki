@@ -13,7 +13,7 @@ Note: For a reference list of basic sysdig commands, see the [quick reference gu
 
 * Show the network data exchanged with the host 192.168.0.1  
 as binary:
-> sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1
+> sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1  
 as ASCII
 > sysdig -s2000 -e -cecho_fds fd.cip=192.168.0.1
 
