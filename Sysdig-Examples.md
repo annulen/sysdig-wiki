@@ -12,9 +12,9 @@ Note: For a reference list of basic sysdig commands, see the [quick reference gu
 > sysdig -p"%proc.name) %fd.name" "evt.type=accept and proc.name!=httpd"
 
 * Show the network data exchanged with the host 192.168.0.1  
-as binary:
+> as binary:  
 > sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1  
-as ASCII  
+as ASCII:  
 > sysdig -s2000 -e -cecho_fds fd.cip=192.168.0.1
 
 * Observe ssh activity
