@@ -20,5 +20,8 @@ as ASCII:
 * Observe ssh activity
 > sysdig -e -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
 
-* See how many open network connections each process has
+* See how many open network connections each process is actively using
 > sysdig -cfd_countby proc.name "fd.type=ipv4"
+
+* See how many files each process is actively using
+> sysdig -cfd_countby proc.name "fd.type=file"
