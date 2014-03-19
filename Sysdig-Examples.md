@@ -26,8 +26,11 @@ as ASCII:
 * See the top processes in terms of actively used files
 > sysdig -cfdcount_by proc.name "fd.type=file"
 
-* See the top local server ports in terms of established connections  
+* See the top local server ports  
+> in terms of established connections:  
 > sysdig -cfdcount_by fd.sport "evt.type=accept"
+> in terms of total bytes:  
+> sysdig -cfdbytes_by fd.sport
 
 * See the top client ports in terms of established connections  
 > sysdig -cfdcount_by fd.sport "evt.type=accept"
