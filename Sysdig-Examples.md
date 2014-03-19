@@ -35,8 +35,11 @@ as ASCII:
 > in terms of total bytes:  
 > sysdig -cfdbytes_by fd.sport
 
-* See the top client ports in terms of established connections  
-> sysdig -cfdcount_by fd.sport "evt.type=accept"
+* See the top client IPs  
+> in terms of established connections  
+> sysdig -cfdcount_by fd.cip "evt.type=accept"
+> in terms of total bytes  
+> XXX
 
 * See the top files in terms of read+write bytes
 > XXX
