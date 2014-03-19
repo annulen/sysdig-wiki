@@ -37,7 +37,7 @@ as ASCII:
 
 * See the top client IPs  
 > in terms of established connections  
-> sysdig -cfdcount_by fd.cip "evt.type=accept"
+> sysdig -cfdcount_by fd.cip "evt.type=accept"  
 > in terms of total bytes  
 > XXX
 
