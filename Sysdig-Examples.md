@@ -15,7 +15,7 @@ Note: For a reference list of basic sysdig commands, see the [quick reference gu
 > as binary:  
 > sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1  
 as ASCII:  
-> sysdig -s2000 -e -cecho_fds fd.cip=192.168.0.1
+> sysdig -s2000 -T -cecho_fds fd.cip=192.168.0.1
 
 * Observe ssh activity
 > sysdig -e -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
