@@ -20,8 +20,11 @@ as ASCII:
 * Observe ssh activity
 > sysdig -e -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
 
-* See the top processes in terms of actively used network connections
-> sysdig -cfdcount_by proc.name "fd.type=ipv4"
+* See the top processes in terms of network bandwidth usage
+> XXX
+
+* See the top processes in terms of disk bandwidth usage
+> XXX
 
 * See the top processes in terms of actively used files
 > sysdig -cfdcount_by proc.name "fd.type=file"
@@ -34,3 +37,12 @@ as ASCII:
 
 * See the top client ports in terms of established connections  
 > sysdig -cfdcount_by fd.sport "evt.type=accept"
+
+* See the top files in terms of read+write bytes
+> XXX
+
+* See the files where most time has been spent
+> XXX
+
+* See the files where apache spent most time
+> XXX
