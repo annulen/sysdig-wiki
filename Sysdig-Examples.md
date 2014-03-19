@@ -26,6 +26,9 @@ as ASCII:
 * See the top processes in terms of disk bandwidth usage
 > sysdig -rlo.scap -ctopprocs_file
 
+* See the top processes in terms of I/O errors
+> XXX
+
 * List the processes that are using a high number of files
 > sysdig -cfdcount_by proc.name "fd.type=file"
 
@@ -48,4 +51,7 @@ as ASCII:
 > XXX
 
 * See the files where apache spent most time
+> XXX
+
+* See the top files in terms of I/O errors
 > XXX
