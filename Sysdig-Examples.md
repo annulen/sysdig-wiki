@@ -1,5 +1,5 @@
 This is an ever growing list of cool things you can do with sysdig commands.  
-Is there anything that you would find useful and that is not in this list? Let us know at info@draios.com!
+Is there anything that you would find useful and that is not in this list? Send us an email at info@draios.com!
   
 Note: For a reference list of basic sysdig commands, see the [quick reference guide](sysdig Quick Reference Guide#wiki-basic-command-list)  
   
