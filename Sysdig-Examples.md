@@ -26,7 +26,7 @@ as ASCII:
 * See the top processes in terms of disk bandwidth usage
 > XXX
 
-* See the top processes in terms of actively used files
+* List the processes that are using a high number of files
 > sysdig -cfdcount_by proc.name "fd.type=file"
 
 * See the top local server ports  
