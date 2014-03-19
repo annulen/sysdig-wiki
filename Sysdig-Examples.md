@@ -31,7 +31,7 @@ as ASCII:
 
 * See the top local server ports  
 > in terms of established connections:  
-> sysdig -cfdcount_by fd.sport "evt.type=accept"
+> sysdig -cfdcount_by fd.sport "evt.type=accept"  
 > in terms of total bytes:  
 > sysdig -cfdbytes_by fd.sport
 
