@@ -24,7 +24,7 @@ as ASCII:
 > sysdig -ctopprocs_net
 
 * See the top processes in terms of disk bandwidth usage
-> XXX
+> sysdig -rlo.scap -ctopprocs_file
 
 * List the processes that are using a high number of files
 > sysdig -cfdcount_by proc.name "fd.type=file"
@@ -39,7 +39,7 @@ as ASCII:
 > in terms of established connections  
 > sysdig -cfdcount_by fd.cip "evt.type=accept"  
 > in terms of total bytes  
-> XXX
+> sysdig -cfdbytes_by fd.cip
 
 * See the top files in terms of read+write bytes
 > XXX
