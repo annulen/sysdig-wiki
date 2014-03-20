@@ -46,7 +46,7 @@ as ASCII:
 > sysdig -cfdbytes_by fd.cip
 
 * See the top files in terms of read+write bytes
-> XXX
+> sysdig -rlo.scap -ctopfiles
 
 * See the files where most time has been spent
 > XXX
@@ -55,4 +55,4 @@ as ASCII:
 > XXX
 
 * See the top files in terms of I/O errors
-> XXX
+> sysdig -rlo.scap -ctopfiles_errors
