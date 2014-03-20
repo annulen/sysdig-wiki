@@ -49,10 +49,10 @@ as ASCII:
 > sysdig -rlo.scap -ctopfiles
 
 * See the files where most time has been spent
-> XXX
+> sysdig -rlo.scap -ctopfiles_time
 
 * See the files where apache spent most time
-> XXX
+> sysdig -rlo.scap -ctopfiles_time proc.name=httpd
 
 * See the top files in terms of I/O errors
 > sysdig -rlo.scap -ctopfiles_errors
