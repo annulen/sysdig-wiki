@@ -28,7 +28,7 @@ as ASCII:
 > sysdig -rlo.scap -ctopprocs_file
 
 * See the top processes in terms of I/O errors
-> XXX
+> sysdig -rlo.scap -ctopprocs_errors
 
 * List the processes that are using a high number of files
 > sysdig -cfdcount_by proc.name "fd.type=file"
