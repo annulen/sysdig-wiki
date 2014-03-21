@@ -81,6 +81,10 @@ Configure the number of bytes that are captured from buffers of I/O system calls
 ## chisel library
 The functions in this library are mostly related to setting up the chisel environment and are usually called at initialization time, i.e. inside on_init().
 
+**chisel.exec(chielname, arg1, arg2, ...)**
+
+This function can be used to stop the execution of the calling chisel and, instead, run a different chisel. The function arguments are the chisel name, followed by the arguments to pass to the new chisel. 
+
 **chisel.request_field(fld_name)**
 
 This function is used to configure the sysdig engine to extract a filter field when an event is captured. _fld_name_ is the name of the sysdig filter field to extract (see the sysdig tutorial or type _sysdig -l_ for a list of available fields).
