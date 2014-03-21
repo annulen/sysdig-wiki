@@ -3,8 +3,6 @@ Is there anything that you would find useful and that is not in this list? Send 
   
 Note: For a reference list of basic sysdig commands, see the [quick reference guide](sysdig Quick Reference Guide#wiki-basic-command-list)  
   
-* Print the top files that apache has been reading or writing to
-> sysdig -c topfiles "proc.name=httpd"
 
 * Show the directories that the user "root" visits
 > sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
@@ -48,11 +46,14 @@ as ASCII:
 * See the top files in terms of read+write bytes
 > sysdig -rlo.scap -ctopfiles
 
+* See the top files in terms of I/O errors
+> sysdig -rlo.scap -ctopfiles_errors
+
 * See the files where most time has been spent
 > sysdig -rlo.scap -ctopfiles_time
 
 * See the files where apache spent most time
 > sysdig -rlo.scap -ctopfiles_time proc.name=httpd
 
-* See the top files in terms of I/O errors
-> sysdig -rlo.scap -ctopfiles_errors
+* Print the top files that apache has been reading from or writing to
+> sysdig -c topfiles "proc.name=httpd"
