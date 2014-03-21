@@ -38,7 +38,7 @@ _Notes_:
 ## Callbacks
 Callbacks are the way sysdig uses to notify a chisel that something has happened. Most callbacks don't need to be registered. Just include the function in the chisel and, if present, the engine will call it. The only exception is on_interval(), which needs to be registered with sysdig.set_interval_s() or sysdig.set_interval_ns().
 Callbacks are optional. If you don't need one of them, just don't include it.
-
+  
 **on_set_arg(name, val)**
 
 This callback is called by the engine for every argument contained in the _args_ global table. _name_ is the name of the argument to set, while _val_ is the value that the user specified on the sysdig command line.
