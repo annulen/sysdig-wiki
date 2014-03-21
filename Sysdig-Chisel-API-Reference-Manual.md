@@ -38,7 +38,8 @@ _Notes_:
 ## Callbacks
 Callbacks are the way sysdig uses to notify a chisel that something has happened. Most callbacks don't need to be registered. Just include the function in the chisel and, if present, the engine will call it. The only exception is on_interval(), which needs to be registered with sysdig.set_interval_s() or sysdig.set_interval_ns().
 Callbacks are optional. If you don't need one of them, just don't include it.
-  
+
+
 **on_set_arg(name, val)**
 
 This callback is called by the engine for every argument contained in the _args_ global table. _name_ is the name of the argument to set, while _val_ is the value that the user specified on the sysdig command line.
@@ -70,6 +71,7 @@ Periodic timeout callback. Can be used to do things like reporting information o
 ## sysdig library
 The functions in this library can be used to get or set global sysdig configuration, like the snaplen or the program capture filter.
 
+
 **sysdig.set_filter(filter)**
 
 Configure the sysdig capture engine to apply the given filter before parsing the captured events. This has the same result as setting the filter from the sysdig command line, and will override the command line filter if one is specified.
@@ -81,7 +83,8 @@ Configure the number of bytes that are captured from buffers of I/O system calls
 ## chisel library
 The functions in this library are mostly related to setting up the chisel environment and are usually called at initialization time, i.e. inside on_init().
 
-**chisel.exec(chielname, arg1, arg2, ...)**
+
+**chisel.exec(chiselname, arg1, arg2, ...)**
 
 This function can be used to stop the execution of the calling chisel and, instead, run a different chisel. The function arguments are the chisel name, followed by the arguments to pass to the new chisel. 
 
@@ -115,7 +118,8 @@ Like set_interval_s(), but allows more granular timeouts.
 
 ## evt library
 The functions in this library are related to the event that is currently processed and therefore can only be called from the on_event() callback.
- 
+
+
 **evt.field(fld)**
 
 Extract a field's value from an event. _fld_ is a field handle obtained from a previous call to request_field().
