@@ -23,14 +23,13 @@ By default, sysdig prints the information for each captured event on a single li
 ```<evt.time> <evt.cpu> <proc.name> <thread.tid> <evt.dir> <evt.type> <evt.args>```
 
 where:
- evt.time is the event timestamp
- evt.cpu is the CPU number where the event was captured
- proc.name is the name of the process that generated the event
- thread.tid id the TID that generated the event, which corresponds to the
-   PID for single thread processes
- evt.dir is the event direction, > for enter events and < for exit events
- evt.type is the name of the event, e.g. 'open' or 'read'
- evt.args is the list of event arguments.
+* evt.time is the event timestamp
+* evt.cpu is the CPU number where the event was captured
+* proc.name is the name of the process that generated the event
+* thread.tid id the TID that generated the event, which corresponds to the PID for single thread processes
+* evt.dir is the event direction, > for enter events and < for exit events
+* evt.type is the name of the event, e.g. 'open' or 'read'
+* evt.args is the list of event arguments.
 
 The output format can be customized with the -p switch, using any of the fields listed by 'sysdig -l'.
 
@@ -47,16 +46,16 @@ Multiple checks can be combined through brakets and the following boolean operat
 > $ sysdig "not(fd.name contains /proc or fd.name contains /dev)"
 
 **Chisels**  
-Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions.
+Sysdig's chisels are little scripts that analyze the sysdig event stream to perform useful actions.
 To get the list of available chisels, type
-> $ sysdig –cl  
+> $ sysdig -cl  
 
 For each chisel, you get the description and the list of arguments it expects. 
-To run one of the chisels, you use the –c flag, e.g.:
-> $ sysdig –c topfiles
+To run one of the chisels, you use the -c flag, e.g.:
+> $ sysdig -c topfiles
 
 If a chisel needs arguments, you specify them after the chisel name:
-> $ sysdig –c spy_ip 192.168.1.157
+> $ sysdig -c spy_ip 192.168.1.157
 
 Chiesls can be combined with filters:
 > $ sysdig -c topfiles "not fd.name contains /dev"
@@ -73,8 +72,8 @@ OPTIONS
 **-cl**, **--list-chisels**  
   lists the available chisels. Looks for chisels in ., ./chisels, ~/chisels and /usr/share/sysdig/chisels.
   
-**-dv**, **--displayflt**  
-  Make the given filter a dsiplay one Setting this option causes the events to be filtered after being parsed by the state system. Events are normally filtered before being analyzed, which is more efficient, but can cause state (e.g. FD names) to be lost
+**-d**, **--displayflt**  
+  Make the given filter a display one Setting this option causes the events to be filtered after being parsed by the state system. Events are normally filtered before being analyzed, which is more efficient, but can cause state (e.g. FD names) to be lost
   
 **-h**, **--help**  
   Print this page
@@ -105,16 +104,47 @@ OPTIONS
   
 **-s** _len_, **--snaplen**=_len_  
   Capture the first <len> bytes of each I/O buffer. By default, the first 80 bytes are captured. Use this option with caution, it can generate huge trace files.
-  
+
 **-t** _timetype_, **--timetype**=_timetype_  
   Change the way event time is diplayed. Accepted values are **h** for human-readable string, **a** for abosulte timestamp from epoch, **r** for relative time from the beginning of the capture, and **d** for delta between event enter and exit.
   
+**-T**, **--print-text**  
+  Print only the text portion of data buffers, and echo EOLS. This is useful to only display human-readable data.
+  
 **-v**, **--verbose**  
-  Verbose output
+  Verbose output.
   
 **-w** _writefile_, **--write**=_writefile_  
   Write the captured events to _writefile_.
 
+**-x**, **--print-hex**  
+  Print data buffers in hex.
+  
+**-X**, **--print-hex-ascii**  
+  Print data buffers in hex and ASCII.
+  
+EXAMPLES
+--------
+Capture all the events from the live system and print them to screen
+> $ sysdig
+
+Capture all the events from the live system and save them to disk
+> $ sysdig -qw dumpfile.scap
+
+Read events from a file and print them to screen
+> $ sysdig -r dumpfile.scap
+
+Print all the open system calls invoked by cat
+> $ sysdig proc.name=cat and evt.type=open
+
+Print the name of the files opened by cat
+> $ ./sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
+
+List the available chisels
+> $ ./sysdig -cl
+
+Run the spy_ip chisel for the 192.168.1.157 IP address:
+> $ sysdig -c spy_ip 192.168.1.157
 
 FILES
 -----
