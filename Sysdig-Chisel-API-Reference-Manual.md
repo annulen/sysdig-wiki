@@ -76,6 +76,9 @@ Periodic timeout callback. Can be used to do things like reporting information o
 ## sysdig library
 The functions in this library can be used to get or set global sysdig configuration, like the snaplen or the program capture filter.
 
+**sysdig.islive()**
+
+Return true if the current capture is live, i.e. if the events are coming from a the system and not from a trace file.
 
 **sysdig.set_filter(filter)**
 
