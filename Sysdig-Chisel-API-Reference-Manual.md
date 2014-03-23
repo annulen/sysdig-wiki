@@ -48,10 +48,15 @@ Returning false means that the parameter is not valid and will cause sysdig to q
 
 **on_init()**
 
-Called by sysdig *after* the capture is configured, *after* _on_set_arg()_ has been called for every chisel argument, but *before* any packet has been captured. Usually, this is where the chisel initialization happens.
+Called by sysdig *after* _on_set_arg()_ has been called for every chisel argument, but *before* the capture is configured. Usually, this is where the chisel initialization happens.
 
 Returning false means that the chisel initialization failed and will cause sysdig to quit.
 
+**on_capture_start()**
+
+Called by sysdig *after* the capture is configured, *after* _on_set_arg()_ has been called for every chisel argument, but *before* any packet has been captured. It can be used for final chisel initializations that require to query the capture state.
+
+Returning false means that the chisel initialization failed and will cause sysdig to quit.
 **on_event()**
 
 Invoked every time one of the captured events passes the filter specified with _set_filter()_, or for each event if _set_filter()_ has not been called. This is the function that usually contains the core chisel logic, and where you want to make sure things are efficient. From this callback you have access to the _evt_ library to extract information from the currently processed event.
