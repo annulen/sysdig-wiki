@@ -68,6 +68,7 @@ If you specified a formatter, returning false in _on_event()_ will make the form
 Called by the engine at the end of the capture, i.e.
 * When CTRL+C is pressed for live captures.
 * After the last event has been read from offline captures.  
+
 The function receives the following arguments:  
 * ts_s, ts_ns: the second and nanosecond parts of the timestamp of the last event in the capture
 * delta: the time between the first and last packet in the capture, in nanoseconds
