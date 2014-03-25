@@ -85,7 +85,7 @@ The returned table has this fields:
 * max_pid: the maximum pid allowed on the machine
 * hostname: the machine hostname
 
-_Note_:this call works with file captures as well, because the machine info is stored in the trace files. In that case, the returned machine info is the one of the machine where the capture happened.
+_Note_: this call works with file captures as well, because the machine info is stored in the trace files. In that case, the returned machine info is the one of the machine where the capture happened.
 
 **sysdig.islive()**
 
