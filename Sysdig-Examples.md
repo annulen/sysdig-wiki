@@ -1,7 +1,7 @@
 This is an ever growing list of cool things you can do with sysdig commands.  
 Is there anything that you would find useful and that is not in this list? Send us an email at info@draios.com!
   
-_Note_: the command lines on this page return live data. However, you can use them with trace files too by just adding the -r<filename> switch.
+_Note_: the command lines on this page return live data. However, you can use them with trace files too by just adding the -r<filename> switch.  
 _Note_: For a reference list of basic sysdig commands, see the [quick reference guide](sysdig Quick Reference Guide#wiki-basic-command-list)
   
 ####Processes and CPU usage
