@@ -3,10 +3,11 @@ Is there anything that you would find useful and that is not in this list? Send 
   
 Note: For a reference list of basic sysdig commands, see the [quick reference guide](sysdig Quick Reference Guide#wiki-basic-command-list)  
   
+####Processes and CPU usage
 
-* Show the directories that the user "root" visits
-> sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
+####Disk I/O
 
+####Networking
 * List all the incoming connections that are not served by apache.
 > sysdig -p"%proc.name) %fd.name" "evt.type=accept and proc.name!=httpd"
 
@@ -15,6 +16,12 @@ Note: For a reference list of basic sysdig commands, see the [quick reference gu
 > sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1  
 as ASCII:  
 > sysdig -s2000 -T -cecho_fds fd.cip=192.168.0.1
+
+####Security
+
+* Show the directories that the user "root" visits
+> sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
+
 
 * Observe ssh activity
 > sysdig -T -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
