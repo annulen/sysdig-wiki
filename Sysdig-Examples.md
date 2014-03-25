@@ -39,12 +39,6 @@ as ASCII:
 * See the top files in terms of read+write bytes
 > sysdig -rlo.scap -ctopfiles
 
-* See the files where most time has been spent
-> sysdig -rlo.scap -ctopfiles_time
-
-* See the files where apache spent most time
-> sysdig -rlo.scap -ctopfiles_time proc.name=httpd
-
 * Print the top files that apache has been reading from or writing to
 > sysdig -c topfiles "proc.name=httpd"
 
@@ -58,7 +52,13 @@ as ASCII:
 * Observe the standard output of a process
 > sysdig -s4096 -T -cstdout proc.name=cat
 
-####Errors
+####Performance and Errors
+* See the files where most time has been spent
+> sysdig -rlo.scap -ctopfiles_time
+
+* See the files where apache spent most time
+> sysdig -rlo.scap -ctopfiles_time proc.name=httpd
+
 * See the top processes in terms of I/O errors
 > sysdig -rlo.scap -ctopprocs_errors
 
