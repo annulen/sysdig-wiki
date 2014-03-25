@@ -74,8 +74,8 @@ The function receives the following arguments:
 
 **on_interval(ts_s, ts_ns, delta)**
 
-Periodic timeout callback. Can be used to do things like reporting information once a second. Use _sysdig.set_interval_s()_ or _sysdig.set_interval_ns()_ to configure it.
-The function receives the following arguments:
+Periodic timeout callback. Can be used to do things like reporting information once a second. Use _sysdig.set_interval_s()_ or _sysdig.set_interval_ns()_ to configure it.  
+The function receives the following arguments:  
 * ts_s, ts_ns: the second and nanosecond parts of the time when this function is called
 * delta: the delta time between the call and the previous call to on_interval()
 
