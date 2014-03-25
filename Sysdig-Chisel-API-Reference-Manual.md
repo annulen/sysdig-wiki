@@ -63,15 +63,21 @@ Invoked every time one of the captured events passes the filter specified with _
 
 If you specified a formatter, returning false in _on_event()_ will make the formatter ignore the event.
 
-**on_capture_end()**
+**on_capture_end(ts_s, ts_ns, delta)**
 
 Called by the engine at the end of the capture, i.e.
 * When CTRL+C is pressed for live captures.
 * After the last event has been read from offline captures.
+The function receives the following arguments:
+* ts_s, ts_ns: the second and nanosecond parts of the timestamp of the last event in the capture
+* delta: the time between the first and last packet in the capture, in nanoseconds
 
-**on_interval()**
+**on_interval(ts_s, ts_ns, delta)**
 
 Periodic timeout callback. Can be used to do things like reporting information once a second. Use _sysdig.set_interval_s()_ or _sysdig.set_interval_ns()_ to configure it.
+The function receives the following arguments:
+* ts_s, ts_ns: the second and nanosecond parts of the time when this function is called
+* delta: the delta time between the call and the previous call to on_interval()
 
 ## sysdig library
 The functions in this library can be used to get or set global sysdig configuration, like the snaplen or the program capture filter.
