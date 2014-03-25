@@ -73,3 +73,5 @@ as ASCII:
 * Observe ssh activity
 > sysdig -T -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
 
+* Show every file open that happens in /etc
+> sysdig evt.type=open and fd.name contains /etc
