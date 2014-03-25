@@ -55,6 +55,9 @@ as ASCII:
 * See the top processes for CPU 0
 > sysdig -ctopprocs_cpu evt.cpu=0
 
+* Observe the standard output of a process
+> sysdig -s4096 -T -cstdout proc.name=cat
+
 ####Errors
 * See the top processes in terms of I/O errors
 > sysdig -rlo.scap -ctopprocs_errors
