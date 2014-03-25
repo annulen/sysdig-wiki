@@ -76,6 +76,17 @@ Periodic timeout callback. Can be used to do things like reporting information o
 ## sysdig library
 The functions in this library can be used to get or set global sysdig configuration, like the snaplen or the program capture filter.
 
+**sysdig.get_machine_info()**
+
+Return a table with information about the machine generating the events.
+The returned table has this fields:  
+* num_cpus: the number of CPU cores on the machine
+* memory_size_bytes: the machine RAM size
+* max_pid: the maximum pid allowed on the machine
+* hostname: the machine hostname
+
+_Note_:this call works with file captures as well, because the machine info is stored in the trace files. In that case, the returned machine info is the one of the machine where the capture happened.
+
 **sysdig.islive()**
 
 Return true if the current capture is live, i.e. if the events are coming from a the system and not from a trace file.
