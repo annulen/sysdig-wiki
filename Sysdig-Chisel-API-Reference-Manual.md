@@ -148,14 +148,18 @@ _Notes_
 * If the requested field is not exported by an event (e.g. non I/O events don't export the fd.name field), the return value of field() will be nil.
 * One important field you need to be aware of is evt.rawarg. This field can be used to extract arbitrary system call arguments, e.g. evt.rawarg.res, and its type depends on the field you're asking. Use _sysdig -L_ to find out the type of event arguments.
 
+**evt.get_cpuid()**
+
+Return number of the CPU where this event was captured.
+
 **evt.get_num()**
 
-Returns the incremental event number.
+Return the incremental event number.
 
 **evt.get_ts()**
 
-Returns the raw event timestamp, expressed as nanoseconds since epoch. 
+Return the raw event timestamp, expressed as nanoseconds since epoch. 
 
 **evt.get_type()**
 
-Returns the event type as a number, and can be used for efficient event filtering. For the list of event type numbers, please refer to the ppm_event_type enumeration in driver/ppm_event_events_public.h.
+Return the event type as a number. This function can be used for efficient event filtering. For the list of event type numbers, please refer to the ppm_event_type enumeration in driver/ppm_event_events_public.h.
