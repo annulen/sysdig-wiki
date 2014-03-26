@@ -10,4 +10,5 @@ _sysdig -cl_
  
 
 **OSX Installation**
-* Download this file onto your local machine: tbd
+We don't provide a Mac binary for sysdig yet, so you need to compile the program from the sources. Don't worry, the process is very simple and it's a matter of following the 
+[compilation instructions](How to Install Sysdig from the Source Code)
