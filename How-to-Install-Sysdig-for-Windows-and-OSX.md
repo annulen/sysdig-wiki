@@ -3,5 +3,5 @@ NOTE: currently only the Linux version of sysdig is capable of capturing events 
 **Windows Installation**
 * Download this file onto your local machine: tbd
 
-**Linux Installation**
+**OSX Installation**
 * Download this file onto your local machine: tbd
