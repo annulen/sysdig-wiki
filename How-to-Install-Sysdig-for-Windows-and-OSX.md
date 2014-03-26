@@ -4,7 +4,7 @@ NOTE: currently only the Linux version of sysdig is capable of capturing events 
 * Download the sysdig zip file from here http://download.draios.com/stable/windows/sysdig-0.1.612.zip
 * Unzip the file
 * Open a command prompt and navigate to the unzipped folder
-* you can now run sysdig, e.g.
+* you can now run sysdig, e.g.  
 _sysdig -cl_
  
 
