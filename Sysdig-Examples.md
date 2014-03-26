@@ -6,7 +6,7 @@ _Note_: if you need a list of basic sysdig commands, for instance to learn how t
   
 ####Networking
 * List all the incoming connections that are not served by apache.
-> sysdig -p"%proc.name) %fd.name" "evt.type=accept and proc.name!=httpd"
+> sysdig -p"%proc.name %fd.name" "evt.type=accept and proc.name!=httpd"
 
 * Show the network data exchanged with the host 192.168.0.1  
 > as binary:  
