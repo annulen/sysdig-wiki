@@ -2,7 +2,11 @@ NOTE: currently only the Linux version of sysdig is capable of capturing events 
 
 ### Windows Installation
 
-#### hello
+#### Requirements
+
+Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows Server 2003, Windows Server 2008, Windows Server 2012
+
+#### Installation
 
 1. Download and install the Visual Studio 2013 Redistributable from http://www.microsoft.com/en-us/download/details.aspx?id=40784  
 2. Download the sysdig zip file from here http://download.draios.com/stable/windows/sysdig-0.1.612.zip  
