@@ -31,13 +31,13 @@ as ASCII:
 
 ####Disk I/O
 * See the top processes in terms of disk bandwidth usage
-> sysdig -rlo.scap -ctopprocs_file
+> sysdig -ctopprocs_file
 
 * List the processes that are using a high number of files
 > sysdig -cfdcount_by proc.name "fd.type=file"
 
 * See the top files in terms of read+write bytes
-> sysdig -rlo.scap -ctopfiles
+> sysdig -ctopfiles
 
 * Print the top files that apache has been reading from or writing to
 > sysdig -c topfiles "proc.name=httpd"
@@ -54,16 +54,16 @@ as ASCII:
 
 ####Performance and Errors
 * See the files where most time has been spent
-> sysdig -rlo.scap -ctopfiles_time
+> sysdig -ctopfiles_time
 
 * See the files where apache spent most time
-> sysdig -rlo.scap -ctopfiles_time proc.name=httpd
+> sysdig -ctopfiles_time proc.name=httpd
 
 * See the top processes in terms of I/O errors
-> sysdig -rlo.scap -ctopprocs_errors
+> sysdig -ctopprocs_errors
 
 * See the top files in terms of I/O errors
-> sysdig -rlo.scap -ctopfiles_errors
+> sysdig -ctopfiles_errors
 
 ####Security
 
