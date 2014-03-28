@@ -1,6 +1,5 @@
-### # ---------------------------------------------------------------
-### # Sysdig will be launching to the public soon, but is not quite ready for prime time. Please do not share this repo right now! If you'd like to help get the word out, shoot us an email at sysdig@draios.com. We'd love to hear from you. Thanks!
-### # ---------------------------------------------------------------
+### Sysdig will be launching to the public soon, but is not quite ready for prime time. Please do not share this repo right now! If you'd like to help get the word out when the time comes, shoot us an email at sysdig@draios.com to learn more. We'd love to hear from you, thanks!
+***
 
 Welcome to the wiki for **sysdig** - the new standard for system-level exploration and troubleshooting! Here you can find information about the tool and its APIs. If this is your first time hearing about sysdig, we recommend you start with the website  
 www.sysdig.org
