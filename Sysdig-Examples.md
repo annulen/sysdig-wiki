@@ -53,6 +53,10 @@ as ASCII:
 > sysdig -s4096 -T -cstdout proc.name=cat
 
 ####Performance and Errors
+
+* See all the failed file opens by httpd
+> sysdig "proc.name=httpd and evt.type=open and evt.rawres<0"
+
 * See the files where most time has been spent
 > sysdig -ctopfiles_time
 
