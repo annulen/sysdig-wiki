@@ -65,6 +65,12 @@ as ASCII:
 * See the top files in terms of I/O errors
 > sysdig -ctopfiles_errors
 
+* See the system calls where most time has been spent
+> sysdig -ctopscalls_time
+
+* See the top system calls returning errors
+> sysdig -ctopscalls "evt.rawres < 0"
+
 ####Security
 
 * Show the directories that the user "root" visits
