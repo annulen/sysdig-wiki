@@ -10,47 +10,47 @@ _Note_: if you need a list of basic sysdig commands, for instance to learn how t
 
 * Show the network data exchanged with the host 192.168.0.1  
 > as binary:  
-> sysdig -s2000 -X -cecho_fds fd.cip=192.168.0.1  
+> sysdig -s2000 -X -c echo_fds fd.cip=192.168.0.1  
 as ASCII:  
-> sysdig -s2000 -T -cecho_fds fd.cip=192.168.0.1
+> sysdig -s2000 -T -c echo_fds fd.cip=192.168.0.1
 
 * See the top processes in terms of network bandwidth usage
-> sysdig -ctopprocs_net
+> sysdig -c topprocs_net
 
 * See the top local server ports  
 > in terms of established connections:  
-> sysdig -cfdcount_by fd.sport "evt.type=accept"  
+> sysdig -c fdcount_by fd.sport "evt.type=accept"  
 > in terms of total bytes:  
-> sysdig -cfdbytes_by fd.sport
+> sysdig -c fdbytes_by fd.sport
 
 * See the top client IPs  
 > in terms of established connections  
-> sysdig -cfdcount_by fd.cip "evt.type=accept"  
+> sysdig -c fdcount_by fd.cip "evt.type=accept"  
 > in terms of total bytes  
-> sysdig -cfdbytes_by fd.cip
+> sysdig -c fdbytes_by fd.cip
 
 ####Disk I/O
 * See the top processes in terms of disk bandwidth usage
-> sysdig -ctopprocs_file
+> sysdig -c topprocs_file
 
 * List the processes that are using a high number of files
-> sysdig -cfdcount_by proc.name "fd.type=file"
+> sysdig -c fdcount_by proc.name "fd.type=file"
 
 * See the top files in terms of read+write bytes
-> sysdig -ctopfiles
+> sysdig -c topfiles_bytes
 
 * Print the top files that apache has been reading from or writing to
-> sysdig -c topfiles "proc.name=httpd"
+> sysdig -c topfiles_bytes proc.name=httpd
 
 ####Processes and CPU usage
 * See the top processes in terms of disk bandwidth usage
-> sysdig -ctopprocs_cpu
+> sysdig -c topprocs_cpu
 
 * See the top processes for CPU 0
-> sysdig -ctopprocs_cpu evt.cpu=0
+> sysdig -c topprocs_cpu evt.cpu=0
 
 * Observe the standard output of a process
-> sysdig -s4096 -T -cstdout proc.name=cat
+> sysdig -s4096 -T -c stdout proc.name=cat
 
 ####Performance and Errors
 
@@ -58,22 +58,22 @@ as ASCII:
 > sysdig "proc.name=httpd and evt.type=open and evt.rawres<0"
 
 * See the files where most time has been spent
-> sysdig -ctopfiles_time
+> sysdig -c topfiles_time
 
 * See the files where apache spent most time
-> sysdig -ctopfiles_time proc.name=httpd
+> sysdig -c topfiles_time proc.name=httpd
 
 * See the top processes in terms of I/O errors
-> sysdig -ctopprocs_errors
+> sysdig -c topprocs_errors
 
 * See the top files in terms of I/O errors
-> sysdig -ctopfiles_errors
+> sysdig -c topfiles_errors
 
 * See the system calls where most time has been spent
-> sysdig -ctopscalls_time
+> sysdig -c topscalls_time
 
 * See the top system calls returning errors
-> sysdig -ctopscalls "evt.rawres < 0"
+> sysdig -c topscalls "evt.rawres < 0"
 
 ####Security
 
@@ -81,7 +81,7 @@ as ASCII:
 > sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
 
 * Observe ssh activity
-> sysdig -T -cecho_fds fd.name=/dev/ptmx and proc.name=sshd
+> sysdig -T -c echo_fds fd.name=/dev/ptmx and proc.name=sshd
 
 * Show every file open that happens in /etc
 > sysdig evt.type=open and fd.name contains /etc
