@@ -12,7 +12,7 @@ _Note_: if you need a list of basic sysdig commands, for instance to learn how t
 > as binary:  
 > sysdig -s2000 -X -c echo_fds fd.cip=192.168.0.1  
 as ASCII:  
-> sysdig -s2000 -T -c echo_fds fd.cip=192.168.0.1
+> sysdig -s2000 -A -c echo_fds fd.cip=192.168.0.1
 
 * See the top processes in terms of network bandwidth usage
 > sysdig -c topprocs_net
@@ -50,7 +50,7 @@ as ASCII:
 > sysdig -c topprocs_cpu evt.cpu=0
 
 * Observe the standard output of a process
-> sysdig -s4096 -T -c stdout proc.name=cat
+> sysdig -s4096 -A -c stdout proc.name=cat
 
 ####Performance and Errors
 
@@ -81,7 +81,7 @@ as ASCII:
 > sysdig -p"%evt.arg.path" "evt.type=chdir and user.name=root"
 
 * Observe ssh activity
-> sysdig -T -c echo_fds fd.name=/dev/ptmx and proc.name=sshd
+> sysdig -A -c echo_fds fd.name=/dev/ptmx and proc.name=sshd
 
 * Show every file open that happens in /etc
 > sysdig evt.type=open and fd.name contains /etc
