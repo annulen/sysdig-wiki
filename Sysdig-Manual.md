@@ -63,6 +63,9 @@ Chiesls can be combined with filters:
 OPTIONS
 -------
 
+**-A**, **--print-ascii**  
+  Only print the text portion of data buffers, and echo end-of-lines. This is useful to only display human-readable data.
+
 **-a**, **--abstime**  
   Show absolute event timestamps
   
@@ -107,10 +110,7 @@ OPTIONS
 
 **-t** _timetype_, **--timetype**=_timetype_  
   Change the way event time is diplayed. Accepted values are **h** for human-readable string, **a** for abosulte timestamp from epoch, **r** for relative time from the beginning of the capture, and **d** for delta between event enter and exit.
-  
-**-T**, **--print-text**  
-  Print only the text portion of data buffers, and echo EOLS. This is useful to only display human-readable data.
-  
+   
 **-v**, **--verbose**  
   Verbose output.
   
