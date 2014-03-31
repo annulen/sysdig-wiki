@@ -55,7 +55,7 @@ as ASCII:
 ####Performance and Errors
 
 * See all the failed file opens by httpd
-> sysdig "proc.name=httpd and evt.type=open and evt.rawres<0"
+> sysdig "proc.name=httpd and evt.type=open and evt.failed=true"
 
 * See the files where most time has been spent
 > sysdig -c topfiles_time
@@ -73,7 +73,7 @@ as ASCII:
 > sysdig -c topscalls_time
 
 * See the top system calls returning errors
-> sysdig -c topscalls "evt.rawres < 0"
+> sysdig -c topscalls "evt.failed=true"
 
 ####Security
 
