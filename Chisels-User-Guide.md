@@ -25,7 +25,7 @@ And if a chisel needs arguments, you specify them after the chisel name:
 Chisels can be combined with filters, which usually makes them much more useful. For example, let’s take the simple topfiles_bytes chisel. If we run it without arguments, it will show us the most accessed files on the whole machine.
 
 ```
->./sysdig -c topfiles_bytes  
+>$ sysdig -c topfiles_bytes  
 Bytes     Filename  
 ------------------------------
 23.32KB   /proc/net/unix  
@@ -41,29 +41,38 @@ Bytes     Filename
 
 Let’s say we’re not interested in accesses to /dev. We can filter it out with something like this
 
+```
 >$ sysdig -c topfiles_bytes "not fd.name contains /dev"  
---14:10:24------------------------------------------  
+Bytes     Filename  
+------------------------------  
+23.32KB   /proc/net/unix  
+9.11KB    /usr/share/icons/hicolor/16x16/actions/terminator_receive_off.png  
 5.64KB    /etc/localtime  
-4.88KB    /lib64/libc.so.6  
-4.77KB    /usr/share/locale/locale.alias  
-2.26KB    /proc/mounts  
-2.18KB    /etc/passwd  
-2.00KB    /proc/meminfo  
-1.66KB    /etc/nsswitch.conf  
-1.62KB    /lib64/libdl.so.2  
-1.62KB    /lib64/libtinfo.so.5  
+4.92KB    /proc/interrupts  
+4.37KB    /etc/wgetrc  
+2.88KB    /proc/stat  
+2.39KB    /usr/share/locale/locale.alias  
+1.85KB    /proc/18263/status  
+```
 
 Or maybe we want to see the top files in a specific folder:
 
+```
 >$ sysdig -c topfiles_bytes "fd.name contains /root"  
---14:14:14------------------------------------------  
-1.98KB    /root/agent/build/debug/test/lo.txt  
-16B       /root/.dropbox/config.dbx  
+Bytes     Filename
+------------------------------
+1.29KB    /root/agent/build/debug/test/index.html.93
+1.10KB    /root/.dropbox/PENDING_aWX7WU
+1.10KB    /root/.dropbox/UPDATED_UsxrsX
+16B       /root/.dropbox/filecache.dbx```
+```
 
 Or the ones accessed by a specific process:
 
+```
 >$ sysdig -c topfiles_bytes "proc.name=vi"  
---14:18:35------------------------------------------  
+Bytes     Filename
+------------------------------
 4.00KB    /root/agent/build/debug/test/.lo.txt.swp  
 3.36KB    /usr/share/terminfo/x/xterm-256color  
 2.18KB    /etc/passwd  
@@ -73,11 +82,14 @@ Or the ones accessed by a specific process:
 832B      /lib64/libpcre.so.1  
 832B      /lib64/libc.so.6  
 832B      /lib64/libnss_files.so.2  
+```
 
 Or by a specific user:
 
+```
 >$ sysdig -c topfiles_bytes "user.name=loris"  
---14:15:43------------------------------------------  
+Bytes     Filename
+------------------------------
 3.31KB    /etc/nsswitch.conf  
 2.18KB    /etc/passwd  
 1.62KB    /lib64/libselinux.so.1  
@@ -87,6 +99,7 @@ Or by a specific user:
 1.62KB    /lib64/libnss_files.so.2  
 898B      /etc/group  
 54B       /proc/self/task/30414/attr/current  
+```
 
 One last thing to remember about chisels is that you can run as many as you want at the same time. For example,
 
