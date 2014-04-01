@@ -25,17 +25,17 @@ And if a chisel needs arguments, you specify them after the chisel name:
 Chisels can be combined with filters, which usually makes them much more useful. For example, let’s take the simple topfiles_bytes chisel. If we run it without arguments, it will show us the most accessed files on the whole machine.
 
 >./sysdig -c topfiles_bytes  
-Bytes     Filename
-------------------------------
-23.32KB   /proc/net/unix
-9.11KB    /usr/share/icons/hicolor/16x16/actions/terminator_receive_off.png
-5.64KB    /etc/localtime
-4.92KB    /proc/interrupts
-4.38KB    /dev/input/event2
-4.37KB    /etc/wgetrc
-2.88KB    /proc/stat
-2.39KB    /usr/share/locale/locale.alias
-1.85KB    /proc/18263/status
+Bytes     Filename  
+------------------------------  
+23.32KB   /proc/net/unix  
+9.11KB    /usr/share/icons/hicolor/16x16/actions/terminator_receive_off.png  
+5.64KB    /etc/localtime  
+4.92KB    /proc/interrupts  
+4.38KB    /dev/input/event2  
+4.37KB    /etc/wgetrc  
+2.88KB    /proc/stat  
+2.39KB    /usr/share/locale/locale.alias  
+1.85KB    /proc/18263/status  
 
 Let’s say we’re not interested in accesses to /dev. We can filter it out with something like this
 
