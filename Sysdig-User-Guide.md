@@ -224,11 +224,11 @@ As you can see, enough to do plenty of creative digging. For example, thanks to 
 
 to see the incoming network connections received by processes other than apache.  
 But that’s not all.  
-There are a couple of special fields, evt.arg and evt.rawarg, that deserve additional explanation. Every event that sysdig captures has a type (e.g. 'open', 'read'...), and a set of parameters (e.g. 'fd', 'name'...) that are encoded using a standardize type system. I know this sounds boring, so let’s just talk about the benefits of it: any parameter of any event can be used in filters. For example:
+There are a couple of special fields, evt.arg and evt.rawarg, that deserve additional explanation. Every event that sysdig captures has a type (e.g. 'open', 'read'...), and a set of parameters (e.g. 'fd', 'name'...) that are encoded using a standardize type system. I know this sounds boring, so let’s just talk about the benefits of it: any parameter of any event can be used in filters. For example this command line shows the programs that are run by interactive users:
 
 >$ sysdig evt.type=execve and evt.arg.ptid=bash
 
-shows the programs that are run by interactive users, through a filter that keeps the execve system calls (which are used to execute programs), but only if the parent process name is ‘bash’.
+The filter accepts the execve system calls (which are used to execute programs), but only if the parent process name is ‘bash’.
 The difference between evt.arg and event.rawarg is that the second doesn’t do resolution of PIDs, FDs, error codes, etc, and leaves the argument in its raw numeric form. For example, you can use
 
 >$ sysdig evt.arg.res=ENOENT
@@ -397,19 +397,19 @@ Please just remember that the list changes with every new release, so make sure 
 
 ###Output Formatting 
 
-Did you take some time to experiment with filtering and filter fields? Good, because now we’re going to learn how to use the same fields to customize what sysdig prints to the screen. Another really nice benefit of the type of system sysdig uses to encode fields, events and parameters is that they can all be used to customize the program output. Output customization happens with the –p command line flag, and works somewhat similarly to the C printf syntax. Here’s an example:
+Did you take some time to experiment with filtering and filter fields? Good, because now we’re going to learn how to use the same fields to customize what sysdig prints to the screen. Another really nice benefit of the type system sysdig uses to encode fields is that they can all be used to customize the program output. Output customization happens with the –p command line flag, and works somewhat similarly to the C printf syntax. Here’s an example:
 
 >$ sysdig -p"user:%user.name dir:%evt.arg.path" evt.type=chdir  
-ubuntu) /root  
-ubuntu) /root/tmp  
-ubuntu) /root/Download  
+ubuntu /root  
+ubuntu /root/tmp  
+ubuntu /root/Download  
 
 This one-liner filters on the chdir system calls (the ones that get called every time a user does a cd), and prints the user name and the directory where the user is going. Essentially, it lets you follow a user as she moves in the file system.
 
 Some notes about the –p formatting syntax:
 * Fields must be prepended with a %
 * You can add arbitrary text in the string, exactly as you would do in the C printf.
-* By default, a line is printed only if **all** the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it prints no matter what. In that case, the missing fields will be rendered as \<NA\>.
+* By default, a line is printed only if **all** the fields specified by –p are present in the event. You can, however, prepend the string with a * to make it print no matter what. In that case, the missing fields will be rendered as \<NA\>.
 
 For example,
 
@@ -437,9 +437,9 @@ open > \<NA\>
 
 Putting together filtering and output formatting makes sysdig a very flexible and powerful tool. Here are some examples:
 
->$ sysdig -s 65000 "-p%evt.rawarg.data" "proc.name=cat and evt.type=write and fd.num=1"
+>$ sysdig -A -s 65000 "-p%evt.buffer" "proc.name=cat and evt.type=write and fd.num=1"
 
-prints the standard output of a process (cat in this case). Note how we use the –s switch to capture more than the usual 80 bytes of each write. Use that flag with caution, it can generate huge trace files!
+prints the standard output of a process (cat in this case). Note how we use the -A switch to render the result as a human readable string, and the –s switch to capture more than the usual 80 bytes of each write. Use -s with caution, it can generate huge trace files!
 
 >$ sysdig -p"%user.name) %proc.name %proc.args" evt.type=execve and evt.arg.ptid=bash
 
@@ -456,8 +456,8 @@ prints user, process, and file name for all the accesses to the /etc directory.
 >$ sysdig -p"%fd.name" “proc.name=apache and evt.type=accept"
 
 lists TCP/IP endpoint information for all the connections received by apache.
-Well, you get the idea. :-)
-Are you interested in learning more useful sysdig one-liners? Visit the sysdig website on a regular basis or, even better, follow us on twitter. We’ll post new one-liners on a regular basis.
+I can go on and on, but, well, you get the idea. :-)
+Are you interested in learning more useful sysdig one-liners? Visit the sysdig website or, even better, follow us on twitter. We’ll post new one-liners on a regular basis.
 
 ###Chisels
 
