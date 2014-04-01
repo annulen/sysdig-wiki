@@ -1,40 +1,45 @@
 Sysdig’s chisels are little scripts that analyze the sysdig event stream to perform useful actions. 
 If you’ve used system tracing tools like dtrace, you’re probably familiar with running scripts that trace OS events. Usually, with dtrace-like tools you write your scripts using a domain-specific language that gets compiled into bytecode and injected in the kernel. Draios uses a different approach: events are efficiently brought to user-level, enriched with context, and then scripts can be applied to them. This brings several benefits:
 
-* A well known scripting language can be used instead of a custom one. In fact, sysdig’s chisels are LUA scripts. LUA is well known, powerful, and extremely efficient.
-* Chisels can leverage the broad collection of LUA libraries.
+* A well known scripting language can be used instead of a custom one. In fact, sysdig’s chisels are Lua scripts. Lua is well known, powerful, stable and extremely efficient.
+* Chisels can leverage the broad collection of Lua libraries.
 * Chisels work well on live systems, but can also be used with trace files for offline analysis.  
 
 To get the list of available chisels, just type
 
 >$ sysdig –cl  
 
-For each chisel, you get the description and the list of arguments it expects. 
-To run one of the chisels, you use the –c flag. For instance, let’s run the topfiles chisel:
+You will get a short description for each of the available chisels.  
+If you need a detailed description and the list of arguments for one of the chisels, you use the -i command line switch:
 
->$ sysdig –c topfiles
+>$ sysdig -ispy_ip
+
+To run one of the chisels, you use the –c flag. For instance, let’s run the topfiles_bytes chisel:
+
+>$ sysdig –c topfiles_bytes
 
 And if a chisel needs arguments, you specify them after the chisel name:
 
 >$ sysdig –c spy_ip 192.168.1.157
 
-Chisels can be combined with filters, which usually makes them much more useful. For example, let’s take the simple topfiles chisel. If we run it without arguments, it will show us the most accessed files on the whole machine.
+Chisels can be combined with filters, which usually makes them much more useful. For example, let’s take the simple topfiles_bytes chisel. If we run it without arguments, it will show us the most accessed files on the whole machine.
 
->./sysdig -c topfiles  
---14:08:14------------------------------------------  
-569.74KB  /dev/kmsg  
-4.88KB    /lib64/libc.so.6  
-4.77KB    /usr/share/locale/locale.alias  
-2.00KB    /proc/meminfo  
-1.62KB    /lib64/libdl.so.2  
-1.62KB    /lib64/libtinfo.so.5  
-1.28KB    /dev/ptmx  
-812B      /dev/pts/11  
-664B      /dev/null  
+>./sysdig -c topfiles_bytes  
+Bytes     Filename
+------------------------------
+23.32KB   /proc/net/unix
+9.11KB    /usr/share/icons/hicolor/16x16/actions/terminator_receive_off.png
+5.64KB    /etc/localtime
+4.92KB    /proc/interrupts
+4.38KB    /dev/input/event2
+4.37KB    /etc/wgetrc
+2.88KB    /proc/stat
+2.39KB    /usr/share/locale/locale.alias
+1.85KB    /proc/18263/status
 
 Let’s say we’re not interested in accesses to /dev. We can filter it out with something like this
 
->$ sysdig -c topfiles "not fd.name contains /dev"  
+>$ sysdig -c topfiles_bytes "not fd.name contains /dev"  
 --14:10:24------------------------------------------  
 5.64KB    /etc/localtime  
 4.88KB    /lib64/libc.so.6  
@@ -48,14 +53,14 @@ Let’s say we’re not interested in accesses to /dev. We can filter it out wit
 
 Or maybe we want to see the top files in a specific folder:
 
->$ sysdig -c topfiles "fd.name contains /root"  
+>$ sysdig -c topfiles_bytes "fd.name contains /root"  
 --14:14:14------------------------------------------  
 1.98KB    /root/agent/build/debug/test/lo.txt  
 16B       /root/.dropbox/config.dbx  
 
 Or the ones accessed by a specific process:
 
->$ sysdig -c topfiles "proc.name=vi"  
+>$ sysdig -c topfiles_bytes "proc.name=vi"  
 --14:18:35------------------------------------------  
 4.00KB    /root/agent/build/debug/test/.lo.txt.swp  
 3.36KB    /usr/share/terminfo/x/xterm-256color  
@@ -69,7 +74,7 @@ Or the ones accessed by a specific process:
 
 Or by a specific user:
 
->$ sysdig -c topfiles "user.name=loris"  
+>$ sysdig -c topfiles_bytes "user.name=loris"  
 --14:15:43------------------------------------------  
 3.31KB    /etc/nsswitch.conf  
 2.18KB    /etc/passwd  
