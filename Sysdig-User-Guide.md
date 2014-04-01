@@ -9,18 +9,24 @@
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
 
 > $ sysdig  
-09:34:35.807452316 0 httpd (59416) > writev fd=13 size=270  
-09:34:35.807452847 2 ab (59421) > write fd=17(<4>127.0.0.1:40370->127.0.0.1:80) size=77  
-09:34:35.807477353 0 httpd (59416) < writev res=270 data=HTTP/1.1 302 Found..Date: Fri, 10 Jan 2014 17:34:35 GMT..Server: Apache/2.4.4 (U  
-09:34:35.807487713 2 ab (59421) < write res=77 data=GET / HTTP/1.0..Host: 127.0.0.1..User-Agent: ApacheBench/2.3..Accept: */*....  
-09:34:35.807489930 2 ab (59421) > connect fd=6(<4>127.0.0.1:40371->127.0.0.1:80)  
-09:34:35.807492363 2 ab (59421) < connect res=0 tuple=4127.0.0.1:40371->127.0.0.1:80  
-09:34:35.807493225 0 httpd (59416) > write fd=9(<f>/opt/lampp/logs/access_log (deleted)) size=66  
-09:34:35.807494292 2 ab (59421) > epoll_ctl  
+34378 12:02:36.269753803 2 echo (7896) > close fd=3(<f>/usr/lib/locale/locale-archive) 
+34379 12:02:36.269754164 2 echo (7896) < close res=0 
+34380 12:02:36.269781699 2 echo (7896) > fstat fd=1(<f>/dev/pts/3) 
+34381 12:02:36.269783882 2 echo (7896) < fstat res=0 
+34382 12:02:36.269784970 2 echo (7896) > mmap 
+34383 12:02:36.269786575 2 echo (7896) < mmap 
+34384 12:02:36.269827674 2 echo (7896) > write fd=1(<f>/dev/pts/3) size=12 
+34385 12:02:36.269839477 2 echo (7896) < write res=12 data=hello world. 
+34386 12:02:36.269843986 2 echo (7896) > close fd=1(<f>/dev/pts/3) 
+34387 12:02:36.269844466 2 echo (7896) < close res=0 
+34388 12:02:36.269844816 2 echo (7896) > munmap 
+34389 12:02:36.269850803 2 echo (7896) < munmap 
+34390 12:02:36.269851915 2 echo (7896) > close fd=2(<f>/dev/pts/3) 
+34391 12:02:36.269852314 2 echo (7896) < close res=0 
 
 By default, sysdig prints the information for each event on a single line, with the following format:
 
-```%evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args```
+```%evt.num %evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args```
 
 where:
 * evt.time is the event timestamp
