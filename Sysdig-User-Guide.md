@@ -10,19 +10,19 @@ The simplest way to use sysdig is by invoking it without any argument. Doing thi
 
 > $ sysdig  
 34378 12:02:36.269753803 2 echo (7896) > close fd=3(<f>/usr/lib/locale/locale-archive)  
-34379 12:02:36.269754164 2 echo (7896) < close res=0 
-34380 12:02:36.269781699 2 echo (7896) > fstat fd=1(<f>/dev/pts/3) 
-34381 12:02:36.269783882 2 echo (7896) < fstat res=0 
-34382 12:02:36.269784970 2 echo (7896) > mmap 
-34383 12:02:36.269786575 2 echo (7896) < mmap 
-34384 12:02:36.269827674 2 echo (7896) > write fd=1(<f>/dev/pts/3) size=12 
-34385 12:02:36.269839477 2 echo (7896) < write res=12 data=hello world. 
-34386 12:02:36.269843986 2 echo (7896) > close fd=1(<f>/dev/pts/3) 
-34387 12:02:36.269844466 2 echo (7896) < close res=0 
-34388 12:02:36.269844816 2 echo (7896) > munmap 
-34389 12:02:36.269850803 2 echo (7896) < munmap 
-34390 12:02:36.269851915 2 echo (7896) > close fd=2(<f>/dev/pts/3) 
-34391 12:02:36.269852314 2 echo (7896) < close res=0 
+34379 12:02:36.269754164 2 echo (7896) < close res=0  
+34380 12:02:36.269781699 2 echo (7896) > fstat fd=1(<f>/dev/pts/3)  
+34381 12:02:36.269783882 2 echo (7896) < fstat res=0  
+34382 12:02:36.269784970 2 echo (7896) > mmap  
+34383 12:02:36.269786575 2 echo (7896) < mmap  
+34384 12:02:36.269827674 2 echo (7896) > write fd=1(<f>/dev/pts/3) size=12  
+34385 12:02:36.269839477 2 echo (7896) < write res=12 data=hello world.  
+34386 12:02:36.269843986 2 echo (7896) > close fd=1(<f>/dev/pts/3)  
+34387 12:02:36.269844466 2 echo (7896) < close res=0  
+34388 12:02:36.269844816 2 echo (7896) > munmap  
+34389 12:02:36.269850803 2 echo (7896) < munmap  
+34390 12:02:36.269851915 2 echo (7896) > close fd=2(<f>/dev/pts/3)  
+34391 12:02:36.269852314 2 echo (7896) < close res=0  
 
 By default, sysdig prints the information for each event on a single line, with the following format:
 
