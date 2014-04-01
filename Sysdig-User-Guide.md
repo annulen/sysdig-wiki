@@ -79,23 +79,21 @@ Note also that you can download a MAC and Windows version of sysdig. They won’
 
 Now that we took care of the basics, let’s start having some fun. Sysdig’s filtering system is powerful and versatile, and is designed to look for needles in a haystack. Filters are specified at the end of the command line, like in tcpdump, and can be applied to both a live capture or a trace file. For example, let’s look at the activity of a specific command, in this case cat:
 > $ ./sysdig proc.name=cat  
-19:28:06.634075871 2 cat (45854) < execve res=0 exe=cat args= tid=45854(cat) pid=45854(cat) ptid=38714(bash) cwd=/root/agent/build/debug/test fdlimit=1024  
-19:28:06.634149757 2 cat (45854) > brk size=0  
-19:28:06.634151608 2 cat (45854) < brk res=6557696  
-19:28:06.634176617 2 cat (45854) > mmap  
-19:28:06.634182286 2 cat (45854) < mmap  
-19:28:06.634198501 2 cat (45854) > access  
-19:28:06.634210969 2 cat (45854) < access  
-19:28:06.634222791 2 cat (45854) > open  
-19:28:06.634236235 2 cat (45854) < open fd=3(<f>/etc/ld.so.cache) name=/etc/ld.so.cache flags=0 mode=0 
-19:28:06.634270260 2 cat (45854) > fstat fd=3(<f>/etc/ld.so.cache)  
-19:28:06.634274365 2 cat (45854) < fstat res=0  
-19:28:06.634275117 2 cat (45854) > mmap  
-19:28:06.634280896 2 cat (45854) < mmap  
-19:28:06.634281325 2 cat (45854) > close fd=3(<f>/etc/ld.so.cache)  
-19:28:06.634282155 2 cat (45854) < close res=0  
-19:28:06.634301578 2 cat (45854) > open 
-19:28:06.634316194 2 cat (45854) < open fd=3(<f>/lib64/libc.so.6) name=/lib64/libc.so.6 flags=0 mode=0
+21368 13:10:15.384878134 1 cat (8298) < execve res=0 exe=cat args=index.html. tid=8298(cat) pid=8298(cat) ptid=1978(bash) cwd=/root fdlimit=1024  
+21371 13:10:15.384948635 1 cat (8298) > brk size=0  
+21372 13:10:15.384949909 1 cat (8298) < brk res=10665984  
+21373 13:10:15.384976208 1 cat (8298) > mmap  
+21374 13:10:15.384979452 1 cat (8298) < mmap  
+21375 13:10:15.384990980 1 cat (8298) > access  
+21376 13:10:15.384999211 1 cat (8298) < access  
+21377 13:10:15.385008602 1 cat (8298) > open  
+21378 13:10:15.385014374 1 cat (8298) < open fd=3(<f>/etc/ld.so.cache) name=/etc/ld.so.cache flags=0(O_NONE) mode=0  
+21379 13:10:15.385015508 1 cat (8298) > fstat fd=3(<f>/etc/ld.so.cache)  
+21380 13:10:15.385016588 1 cat (8298) < fstat res=0  
+21381 13:10:15.385017033 1 cat (8298) > mmap  
+21382 13:10:15.385019763 1 cat (8298) < mmap  
+21383 13:10:15.385020047 1 cat (8298) > close fd=3(<f>/etc/ld.so.cache)  
+21384 13:10:15.385020556 1 cat (8298) < close res=0  
 
 As you can see, sysdig doesn’t attach to processes. It just captures everything and then lets you filter out what you’re not interested in. Filter statements can use the standard comparison operators(=, !=, <, <=, >, >=, contains) and can be combined using Boolean operators (and, or and not) and brackets. For example
 
