@@ -26,7 +26,6 @@ Chisels can be combined with filters, which usually makes them much more useful.
 
 >./sysdig -c topfiles_bytes  
 Bytes     Filename  
-------------------------------  
 23.32KB   /proc/net/unix  
 9.11KB    /usr/share/icons/hicolor/16x16/actions/terminator_receive_off.png  
 5.64KB    /etc/localtime  
