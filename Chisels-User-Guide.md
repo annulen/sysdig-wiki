@@ -25,7 +25,7 @@ And if a chisel needs arguments, you specify them after the chisel name:
 Chisels can be combined with filters, which usually makes them much more useful. For example, let’s take the simple topfiles_bytes chisel. If we run it without arguments, it will show us the most accessed files on the whole machine.
 
 ```
->$ sysdig -c topfiles_bytes  
+$ sysdig -c topfiles_bytes  
 Bytes     Filename  
 ------------------------------
 23.32KB   /proc/net/unix  
@@ -42,7 +42,7 @@ Bytes     Filename
 Let’s say we’re not interested in accesses to /dev. We can filter it out with something like this
 
 ```
->$ sysdig -c topfiles_bytes "not fd.name contains /dev"  
+$ sysdig -c topfiles_bytes "not fd.name contains /dev"  
 Bytes     Filename  
 ------------------------------  
 23.32KB   /proc/net/unix  
@@ -58,7 +58,7 @@ Bytes     Filename
 Or maybe we want to see the top files in a specific folder:
 
 ```
->$ sysdig -c topfiles_bytes "fd.name contains /root"  
+$ sysdig -c topfiles_bytes "fd.name contains /root"  
 Bytes     Filename
 ------------------------------
 1.29KB    /root/agent/build/debug/test/index.html.93
@@ -70,7 +70,7 @@ Bytes     Filename
 Or the ones accessed by a specific process:
 
 ```
->$ sysdig -c topfiles_bytes "proc.name=vi"  
+$ sysdig -c topfiles_bytes "proc.name=vi"  
 Bytes     Filename
 ------------------------------
 4.00KB    /root/agent/build/debug/test/.lo.txt.swp  
@@ -87,7 +87,7 @@ Bytes     Filename
 Or by a specific user:
 
 ```
->$ sysdig -c topfiles_bytes "user.name=loris"  
+$ sysdig -c topfiles_bytes "user.name=loris"  
 Bytes     Filename
 ------------------------------
 3.31KB    /etc/nsswitch.conf  
