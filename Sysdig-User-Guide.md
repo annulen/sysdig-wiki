@@ -9,7 +9,7 @@
 The simplest way to use sysdig is by invoking it without any argument. Doing this will cause sysdig to capture every event and write it to standard output, very much like strace does.
 
 > $ sysdig  
-34378 12:02:36.269753803 2 echo (7896) > close fd=3(<f>/usr/lib/locale/locale-archive) 
+34378 12:02:36.269753803 2 echo (7896) > close fd=3(<f>/usr/lib/locale/locale-archive)  
 34379 12:02:36.269754164 2 echo (7896) < close res=0 
 34380 12:02:36.269781699 2 echo (7896) > fstat fd=1(<f>/dev/pts/3) 
 34381 12:02:36.269783882 2 echo (7896) < fstat res=0 
