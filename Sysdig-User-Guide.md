@@ -29,6 +29,7 @@ By default, sysdig prints the information for each event on a single line, with 
 ```%evt.num %evt.time %evt.cpu %proc.name (%thread.tid) %evt.dir %evt.type %evt.args```
 
 where:
+* evt.num is the incremental event number
 * evt.time is the event timestamp
 * evt.cpu is the CPU number where the event was captured
 * proc.name is the name of the process that generated the event
@@ -41,8 +42,8 @@ where:
 Not all of the system calls are currently decoded by sysdig. Non-decoded system calls are still shown in the output, but with no arguments.
 
 By looking at the output, you can immediately spot some key differences between this output and the strace one:
-* For most system calls, sysdig shows two separate lines: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in case of context switches, especially in multi-processor environments.
-* File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: a tuple for network connections, a name for files, and so on. 
+* For most system calls, sysdig shows two separate entries: an enter one (marked with a ‘>’) and an exit one (marked with a ‘<’). This makes it easier to follow the trace in multi-process environments.
+* File descriptors are resolved. This means that, whenever possible, the FD number is followed by a human-readable representation of the FD itself: the tuple for network connections, the name for files, and so on. 
 The exact format used to render an FD is the following: 
 num(\<type\>resolved_string)
 where: 
