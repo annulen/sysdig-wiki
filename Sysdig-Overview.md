@@ -15,6 +15,6 @@ Think about sysdig as strace + tcpdump + lsof + steroids.
 Sysdig instruments your physical and virtual machines at the OS level by installing into the Linux kernel and capturing system calls and other OS events. Then using sysdig's command line interface, you can filter and decode these events in order to extract useful information. Sysdig can be used to inspect systems live in real-time, or to generate trace files that can be analyzed at a later stage.
 
 ###How can I get the most out of sysdig?
-Please explore this wiki where you will find a variety of documents that will walk you through the full functionality of sysdig. For example, [here are some examples](sysdig Examples) of cool things you can do with sysdig.
+Please explore this wiki where you will find a variety of documents that will walk you through the full functionality of sysdig. For example, [here are some examples](sysdig Examples) of cool things you can do with sysdig, and [here's a manual](Sysdig User Guide) that will introduce you to using the tool.
 
 Happy digging!
