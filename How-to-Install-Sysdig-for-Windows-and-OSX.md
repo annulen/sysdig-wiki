@@ -8,7 +8,7 @@ Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows Server 2003, Windows S
 
 #### Installation
 
-1. Download and install the Visual Studio 2013 32Bit Redistributable (vcredist_x86.exe) from http://www.microsoft.com/en-us/download/details.aspx?id=40784
+1. Download and install the Visual Studio 2013 x86 Redistributable (vcredist_x86.exe) from http://www.microsoft.com/en-us/download/details.aspx?id=40784
 2. Download the sysdig zip file from here http://download.draios.com/stable/windows/sysdig-0.1.612.zip  
 3. Unzip the file  
 4. Open a command prompt and navigate to the unzipped folder  
