@@ -6,7 +6,7 @@ Welcome to **sysdig** - the new standard for system-level exploration and troubl
 www.sysdig.org
 
 Sysdig is developed by Draios, Inc. We'd love to hear from you!  
-www.draios.com / <sysdig@draios.com>  
+www.draios.com / <info@draios.com>  
 
 ####Overview
 * [About Sysdig](Sysdig Overview) - Why we built it, and what it can do.
