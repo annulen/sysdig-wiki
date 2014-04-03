@@ -17,7 +17,7 @@ The following distributions are supported:
 To install sysdig automatically in one step, simply run the following command. This is the recommended installation method. For step-by-step manual installation, see the guide below. To install sysdig from the source code, see the instructions [here](How to Install sysdig from the Source Code).
 
 ```
-curl -s http://download.draios.com/stable/install-sysdig | sudo bash
+curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 ```
 
 ## Manual Installation
