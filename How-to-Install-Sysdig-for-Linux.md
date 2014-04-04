@@ -26,7 +26,7 @@ curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sud
 
 1) Trust the Draios GPG key, configure the apt repository, and update the package list
 ```
-curl -s http://download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
+curl -s https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public | apt-key add -  
 curl -s -o /etc/apt/sources.list.d/draios.list http://download.draios.com/stable/deb/draios.list  
 apt-get update
 ```
@@ -46,7 +46,7 @@ apt-get -y install sysdig
 
 1) Trust the Draios GPG key, configure the yum repository
 ```
-rpm --import http://download.draios.com/DRAIOS-GPG-KEY.public  
+rpm --import https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public  
 curl -s -o /etc/yum.repos.d/draios.repo http://download.draios.com/stable/rpm/draios.repo
 ```
 
