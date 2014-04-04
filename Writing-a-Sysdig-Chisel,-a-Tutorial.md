@@ -8,9 +8,9 @@ Let's start with the simplest possible running chisel.
 
 ```lua
 -- Chisel description
-description = "counts how many times the specified system call has been called";
-short_description = "syscall count";
-category = "misc";
+description = "counts how many times the specified system call has been called"
+short_description = "syscall count"
+category = "misc"
 
 -- Chisel argument list
 args = {}
@@ -45,9 +45,9 @@ Our chisel needs an argument: the name of the system call that the user wants to
 
 ```lua
 -- Chisel description
-description = "counts how many times the specified system call has been called";
-short_description = "syscall count";
-category = "misc";
+description = "counts how many times the specified system call has been called"
+short_description = "syscall count"
+category = "misc"
 
 -- Chisel argument list
 args = 
@@ -86,9 +86,9 @@ Let's complicate our code a bit.
 
 ```lua
 -- Chisel description
-description = "counts how many times the specified system call has been called";
-short_description = "syscall count";
-category = "misc";
+description = "counts how many times the specified system call has been called"
+short_description = "syscall count"
+category = "misc"
 
 -- Chisel argument list
 args = 
@@ -150,9 +150,9 @@ This is exactly what we need to make our script less verbose, so let's add it to
 
 ```lua
 -- Chisel description
-description = "counts how many times the specified system call has been called";
-short_description = "syscall count";
-category = "misc";
+description = "counts how many times the specified system call has been called"
+short_description = "syscall count"
+category = "misc"
 
 -- Chisel argument list
 args = 
@@ -213,9 +213,9 @@ Fortunately, chisels can leverage the sysdig filtering engine. Look at this code
 
 ```lua
 -- Chisel description
-description = "counts how many times the specified system call has been called";
-short_description = "syscall count";
-category = "misc";
+description = "counts how many times the specified system call has been called"
+short_description = "syscall count"
+category = "misc"
 
 -- Chisel argument list
 args = 
